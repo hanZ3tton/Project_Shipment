@@ -16,8 +16,9 @@ class Auth extends CI_Controller
     {
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
+        $data['title'] = 'Login Page';
         if ($this->form_validation->run() == FALSE) {
-            $data['title'] = 'Login Page';
+
             $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/login', $data);
             $this->load->view('templates/auth_footer');
@@ -32,11 +33,14 @@ class Auth extends CI_Controller
                 $this->session->set_userdata('username', $user['username']);
                 redirect('dashboard'); // Redirect to the dashboard or another page
             } else {
-                echo "error";
+                $this->form_validation->set_rules('login_failed', '', 'callback_dummy_login');
+                $this->form_validation->set_message('dummy_login', 'incorrect username or password');
+                $this->form_validation->run();
+                $this->load->view('templates/auth_header', $data);
+                $this->load->view('auth/login', $data);
+                $this->load->view('templates/auth_footer');
             }
         }
-        // Load the login view
-
     }
 
     public function registration()
@@ -56,5 +60,8 @@ class Auth extends CI_Controller
         redirect('auth/login');
     }
 
-    // Additional methods for authentication can be added here
+    public function dummy_login()
+    {
+        return FALSE;
+    }
 }

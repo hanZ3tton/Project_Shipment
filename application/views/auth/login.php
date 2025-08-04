@@ -31,6 +31,8 @@
 											name="password"
 											placeholder="Password" />
 										<?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
+										<?= form_error('login_failed', '<small class="text-danger pl-3">', '</small>') ?>
+
 									</div>
 									<button
 										type="submit"
