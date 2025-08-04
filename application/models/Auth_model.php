@@ -1,5 +1,5 @@
 <?php
-class User_model extends CI_Model
+class Auth_model extends CI_Model
 {
     public function __construct()
     {
@@ -8,9 +8,9 @@ class User_model extends CI_Model
     }
 
     // Method to get user by email
-    public function get_user_by_email($email)
+    public function get_user($username)
     {
-        $query = $this->db->get_where('users', array('email' => $email));
+        $query = $this->db->get_where('user', array('username' => $username));
         return $query->row_array(); // Return a single row as an associative array
     }
 

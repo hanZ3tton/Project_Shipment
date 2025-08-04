@@ -13,8 +13,8 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        $this->load->view('templates/header');
+        $this->load->view('templates/auth_header');
         $this->load->view('dashboard/index');
-        $this->load->view('templates/footer');
+        $this->load->view('templates/auth_footer');
     }
 }
