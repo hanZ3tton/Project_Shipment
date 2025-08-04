@@ -1,5 +1,5 @@
 <?php
-class Dashboard extends CI_Controller
+class Table extends CI_Controller
 {
     public function __construct()
     {
@@ -13,8 +13,10 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        $this->load->view('templates/auth_header');
-        $this->load->view('dashboard/index');
-        $this->load->view('templates/auth_footer');
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('table/index');
+        $this->load->view('templates/footer');
     }
 }
