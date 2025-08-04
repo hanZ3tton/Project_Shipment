@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2025 at 06:01 AM
+-- Generation Time: Aug 04, 2025 at 10:41 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -24,14 +24,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_db`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(200) NOT NULL,
-  `nama_lengkap` varchar(200) NOT NULL,
-  `alamat` varchar(200) NOT NULL,
+  `full_name` varchar(200) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `city` varchar(128) NOT NULL,
+  `postal_code` varchar(128) NOT NULL,
   `email` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -41,7 +43,7 @@ CREATE TABLE `user` (
 --
 
 --
--- Indexes for table `user_db`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
@@ -54,7 +56,7 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `user_db`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
@@ -63,3 +65,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+git pu
