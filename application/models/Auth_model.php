@@ -15,8 +15,19 @@ class Auth_model extends CI_Model
     }
 
     // Method to create a new user
-    public function create_user($data)
+    public function create_user()
     {
-        return $this->db->insert('users', $data); // Insert data into the users table
+        $data = array(
+            'username' => $this->input->post('username'),
+            'full_name' => $this->input->post('fullName'),
+            'email' => $this->input->post('email'),
+            'city' => $this->input->post('city'),
+            'postal_code' => $this->input->post('postalCode'),
+            'address' => $this->input->post('address'),
+            'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT), // Hash the password
+        ); {
+
+            return $this->db->insert('user', $data); // Insert data into the users table
+        }
     }
 }

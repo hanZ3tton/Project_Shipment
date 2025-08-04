@@ -45,11 +45,24 @@ class Auth extends CI_Controller
 
     public function registration()
     {
-        // Load the registration view
-        $data['title'] = 'Registration Page';
-        $this->load->view('templates/auth_header', $data);
-        $this->load->view('auth/registration', $data);
-        $this->load->view('templates/auth_footer');
+        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[user.username]');
+        $this->form_validation->set_rules('fullName', 'Fullname', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
+        $this->form_validation->set_rules('city', 'City', 'required');
+        $this->form_validation->set_rules('postalCode', 'Postal Code', 'required|numeric');
+        $this->form_validation->set_rules('address', 'Address', 'required');
+        $this->form_validation->set_rules('password1', 'Password', 'required|min_length[8]|alpha_numeric');
+        $this->form_validation->set_rules('password2', 'Confirm Password', 'required|matches[password1]');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['title'] = 'Registration Page';
+            $this->load->view('templates/auth_header', $data);
+            $this->load->view('auth/registration', $data);
+            $this->load->view('templates/auth_footer');
+        } else {
+            $this->Auth_model->create_user();
+            redirect('dashboard'); // Redirect to the login page after successful registration
+        }
     }
 
 

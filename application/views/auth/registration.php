@@ -74,7 +74,7 @@
                                         id="password1"
                                         name="password1"
                                         placeholder="Password" />
-                                    <?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
+                                    <?= form_error('password1', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                                 <div class="col-sm-6">
                                     <input
@@ -83,6 +83,8 @@
                                         id="password2"
                                         name="password2"
                                         placeholder="Confrim Password" />
+                                    <?= form_error('password2', '<small class="text-danger pl-3">', '</small>') ?>
+
                                 </div>
                             </div>
                             <button
