@@ -12,7 +12,7 @@
 								<div class="text-center">
 									<h1 class="h4 text-gray-900 mb-4">Login Page</h1>
 								</div>
-								<form class="user" method="post" action="auth">
+								<form class="user" method="post" action="auth/login">
 									<div class="form-group">
 										<input
 											type="text"
