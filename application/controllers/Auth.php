@@ -10,15 +10,23 @@ class Auth extends CI_Controller
         $this->load->library('session');
         $this->load->model('User_model'); // Assuming you have a User_model for user operations
         $this->load->library('form_validation');
-        // $this->load->database();
+        $this->load->database();
     }
     public function index()
     {
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            $data['title'] = 'Login Page';
+            $this->load->view('templates/auth_header', $data);
+            $this->load->view('auth/login', $data);
+            $this->load->view('templates/auth_footer');
+        } else {
+            echo "Form validation passed!";
+            // Here you would typically handle the login logic, such as checking credentials
+        }
         // Load the login view
-        $data['title'] = 'Login Page';
-        $this->load->view('templates/auth_header', $data);
-        $this->load->view('auth/login', $data);
-        $this->load->view('templates/auth_footer');
+
     }
 
     public function registration()
