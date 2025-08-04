@@ -21,7 +21,7 @@
 											name="username"
 											aria-describedby="emailHelp"
 											placeholder="Enter Username..." />
-										<? form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
+										<?= form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
 									</div>
 									<div class="form-group">
 										<input
@@ -30,7 +30,7 @@
 											id="password"
 											name="password"
 											placeholder="Password" />
-										<? form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
+										<?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
 									</div>
 									<button
 										type="submit"
