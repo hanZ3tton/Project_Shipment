@@ -10,11 +10,11 @@
 	<meta name="description" content="" />
 	<meta name="author" content="" />
 
-	<title>Login Page</title>
+	<title><?= $title ?></title>
 
 	<!-- Custom fonts for this template-->
 	<link
-		href="vendor/fontawesome-free/css/all.min.css"
+		href="<?= base_url('assets/') ?>vendor/fontawesome-free/css/all.min.css"
 		rel="stylesheet"
 		type="text/css" />
 	<link
@@ -22,7 +22,7 @@
 		rel="stylesheet" />
 
 	<!-- Custom styles for this template-->
-	<link href="css/sb-admin-2.min.css" rel="stylesheet" />
+	<link href="<?= base_url('assets/') ?>css/sb-admin-2.min.css" rel="stylesheet" />
 </head>
 
 <body class="bg-gradient-primary">
@@ -40,13 +40,13 @@
 									<div class="text-center">
 										<h1 class="h4 text-gray-900 mb-4">Login Page</h1>
 									</div>
-									<form class="user">
+									<form class="user" method="post" action="'auth">
 										<div class="form-group">
 											<input
 												type="text"
 												class="form-control form-control-user"
 												id="username"
-												name="usernmae"
+												name="username"
 												aria-describedby="emailHelp"
 												placeholder="Enter Username..." />
 										</div>
@@ -78,14 +78,14 @@
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="<?= base_url('assets/') ?>vendor/jquery/jquery.min.js"></script>
+	<script src="<?= base_url('assets/') ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
-	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="<?= base_url('assets/') ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
 	<!-- Custom scripts for all pages-->
-	<script src="js/sb-admin-2.min.js"></script>
+	<script src="<?= base_url('assets/') ?>js/sb-admin-2.min.js"></script>
 </body>
 
 </html>

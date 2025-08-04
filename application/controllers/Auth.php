@@ -1,11 +1,14 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
 class Auth extends CI_Controller
 {
 
-    public function login()
+    public function index()
     {
         // Load the login view
-        $this->load->view('auth/login');
+        $data['title'] = 'Login Page';
+        $this->load->view('auth/login', $data);
     }
 
     public function logout()
