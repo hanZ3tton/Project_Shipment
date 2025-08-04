@@ -17,6 +17,7 @@
                                     id="username"
                                     name="username"
                                     placeholder="Enter Username ..." />
+                                <? form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <input
@@ -25,13 +26,16 @@
                                     id="fullName"
                                     name="fullName"
                                     placeholder="Enter Fullname ..." />
+                                <? form_error('fullName', '<small class="text-danger pl-3">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <input
                                     type="email"
                                     class="form-control form-control-user"
-                                    id="exampleInputEmail"
+                                    id="email"
+                                    name="email"
                                     placeholder="Email Address" />
+                                <? form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
@@ -41,6 +45,7 @@
                                         id="city"
                                         name="city"
                                         placeholder="City" />
+                                    <? form_error('city', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                                 <div class="col-sm-6">
                                     <input
@@ -49,6 +54,7 @@
                                         id="postalCode"
                                         name="postalCode"
                                         placeholder="Postal Code" />
+                                    <? form_error('postalCode', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                             </div>
                             <div class="form-group ">
@@ -58,20 +64,24 @@
                                     id="address"
                                     name="address"
                                     placeholder="Enter Address ..." />
+                                <? form_error('address', '<small class="text-danger pl-3">', '</small>') ?>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input
                                         type="password"
                                         class="form-control form-control-user"
-                                        id="exampleInputPassword"
+                                        id="password1"
+                                        name="password1"
                                         placeholder="Password" />
+                                    <? form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                                 <div class="col-sm-6">
                                     <input
                                         type="password"
                                         class="form-control form-control-user"
-                                        id="exampleRepeatPassword"
+                                        id="password2"
+                                        name="password2"
                                         placeholder="Confrim Password" />
                                 </div>
                             </div>
