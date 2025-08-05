@@ -21,6 +21,7 @@ class Auth_model extends CI_Model
             'username' => $this->input->post('username'),
             'full_name' => $this->input->post('fullName'),
             'email' => $this->input->post('email'),
+            'phone_number' => $this->input->post('phoneNum'),
             'city' => $this->input->post('city'),
             'postal_code' => $this->input->post('postalCode'),
             'address' => $this->input->post('address'),
@@ -33,5 +34,28 @@ class Auth_model extends CI_Model
     public function getAllUsers()
     {
         return $this->db->get('user')->result();
+    }
+    public function update_user($id)
+    {
+        $data = array(
+            'username' => $this->input->post('username'),
+            'full_name' => $this->input->post('fullName'),
+            'email' => $this->input->post('email'),
+            'phone_number' => $this->input->post('phoneNum'),
+            'city' => $this->input->post('city'),
+            'postal_code' => $this->input->post('postalCode'),
+            'address' => $this->input->post('address'),
+        );
+        $this->db->where('id', $id);
+        return $this->db->update('user', $data);
+    }
+    public function getUserById($id)
+    {
+        return $this->db->get_where('user', ['id' => $id])->row_array(); // array
+    }
+    public function deleteUser($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->delete('user'); // Delete user by ID
     }
 }

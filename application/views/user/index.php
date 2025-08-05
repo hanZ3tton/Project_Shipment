@@ -25,6 +25,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Phone Number</th>
                             <th>City</th>
                             <th>Address</th>
                             <th>Postal Code</th>
@@ -35,6 +36,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Phone Number</th>
                             <th>City</th>
                             <th>Address</th>
                             <th>Postal Code</th>
@@ -46,12 +48,13 @@
                             <tr>
                                 <td><?= $user->full_name ?> </td>
                                 <td><?= $user->email ?> </td>
+                                <td><?= $user->phone_number ?> </td>
                                 <td><?= $user->city ?> </td>
                                 <td><?= $user->address ?> </td>
                                 <td><?= $user->postal_code ?> </td>
                                 <td>
-                                    <a href="" class="btn btn-success">Edit</a>
-                                    <a href="" class="btn btn-danger">Delete</a>
+                                    <a href="<?= base_url('user/edit/' . $user->id) ?>" class="btn btn-success">Edit</a>
+                                    <a href="<?= base_url('user/delete/' . $user->id) ?>" class="btn btn-danger">Delete</a>
                                 </td>
 
                             </tr>
