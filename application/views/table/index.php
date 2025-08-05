@@ -8,7 +8,7 @@
         visit the
 
     </p>
-    <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal">Add New User</a>
+    <a href="" class="btn btn-purple mb-3" data-toggle="modal" data-target="#newSubMenuModal">Add New User</a>
 
 
     <!-- DataTales Example -->
