@@ -16,11 +16,11 @@ class User extends CI_Controller
     public function index()
     {
         $data['title'] = 'List User Page';
-
+        $data['users'] = $this->Auth_model->getAllUsers();
         $this->load->view('templates/admin_header');
         $this->load->view('templates/admin_sidebar');
         $this->load->view('templates/admin_topbar');
-        $this->load->view('user/index');
+        $this->load->view('user/index', $data);
         $this->load->view('templates/admin_footer');
     }
 

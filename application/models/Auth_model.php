@@ -30,4 +30,8 @@ class Auth_model extends CI_Model
             return $this->db->insert('user', $data); // Insert data into the users table
         }
     }
+    public function getAllUsers()
+    {
+        return $this->db->get('user')->result();
+    }
 }

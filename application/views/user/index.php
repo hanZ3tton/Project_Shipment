@@ -42,18 +42,20 @@
                         </tr>
                     </tfoot>
                     <tbody>
+                        <?php foreach ($users as $user): ?>
+                            <tr>
+                                <td><?= $user->full_name ?> </td>
+                                <td><?= $user->email ?> </td>
+                                <td><?= $user->city ?> </td>
+                                <td><?= $user->address ?> </td>
+                                <td><?= $user->postal_code ?> </td>
+                                <td>
+                                    <a href="" class="btn btn-success">Edit</a>
+                                    <a href="" class="btn btn-danger">Delete</a>
+                                </td>
 
-                        <tr>
-                            <td>Herrod Chandler</td>
-                            <td>Sales Assistant</td>
-                            <td>San Francisco</td>
-                            <td>59</td>
-                            <td>2012/08/06</td>
-                            <td>
-                                <a href="" class="btn btn-success">Edit</a>
-                                <a href="" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

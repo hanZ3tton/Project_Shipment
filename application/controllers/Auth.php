@@ -49,13 +49,20 @@ class Auth extends CI_Controller
 
     public function registration()
     {
-        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[user.username]');
+        $this->form_validation->set_rules('username', 'Username', 'required|min_length[4]|max_length[14]|alpha_dash|is_unique[user.username]');
         $this->form_validation->set_rules('fullName', 'Fullname', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
         $this->form_validation->set_rules('city', 'City', 'required');
         $this->form_validation->set_rules('postalCode', 'Postal Code', 'required|numeric');
         $this->form_validation->set_rules('address', 'Address', 'required');
-        $this->form_validation->set_rules('password1', 'Password', 'required|min_length[8]|alpha_numeric');
+        $this->form_validation->set_rules(
+            'password1',
+            'Password',
+            'required|min_length[8]|regex_match[/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/]',
+            [
+                'regex_match' => 'Password must contain uppercase, lowercase, numbers, and symbols.'
+            ]
+        );
         $this->form_validation->set_rules('password2', 'Confirm Password', 'required|matches[password1]');
 
         if ($this->form_validation->run() == FALSE) {

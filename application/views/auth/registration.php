@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <input
-                                        type="password"
+                                        type="text"
                                         class="form-control form-control-user"
                                         id="postalCode"
                                         name="postalCode"
