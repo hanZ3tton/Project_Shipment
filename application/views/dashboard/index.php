@@ -78,7 +78,7 @@
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
                 datasets: [{
                     label: 'Orders',
-                    data: [80, 90, 95, 100, 110, 125, 140, 155],
+                    data: [80, 90, 95, 100, 110, 125, 140, 145],
                     backgroundColor: 'rgba(99, 102, 241, 0.2)',
                     borderColor: 'rgba(99, 102, 241, 1)',
                     borderWidth: 2,
