@@ -22,7 +22,7 @@
 	--white: #fff;
 	--gray: #858796;
 	--gray-dark: #5a5c69;
-	--primary: #0b1d51;
+	--primary: #fe7743;
 	--secondary: #858796;
 	--success: #1cc88a;
 	--info: #36b9cc;
@@ -5908,7 +5908,7 @@ a.close.disabled {
 	vertical-align: text-top !important;
 }
 .bg-primary {
-	background-color: #fe7743	 !important;
+	background-color: #fe7743 !important;
 }
 a.bg-primary:focus,
 a.bg-primary:hover,
@@ -8835,7 +8835,7 @@ button.bg-dark:hover {
 	color: #fff !important;
 }
 .text-primary {
-	color: #4e73df !important;
+	color: var(--primary) !important;
 }
 a.text-primary:focus,
 a.text-primary:hover {
