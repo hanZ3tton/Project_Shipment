@@ -14,22 +14,7 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        //if (!$this->session->userdata('username')) {
-        //redirect('auth'); // Redirect to login if not logged in
-        // }
 
-        $data['title'] = 'Dashboard';
-        // $data['user_data'] = $this->Dashboard_model->get_user_data($this->session->userdata('username')); 
-
-        $this->load->view('templates/admin_header');
-        $this->load->view('templates/admin_sidebar');
-        $this->load->view('templates/admin_topbar');
-        $this->load->view('table/index');
-        $this->load->view('templates/admin_footer');
-    }
-
-    public function test()
-    {
         $data['title'] = 'dashboard page';
         $this->load->view('templates/admin_header');
         $this->load->view('templates/admin_sidebar');
