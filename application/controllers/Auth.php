@@ -28,7 +28,7 @@ class Auth extends CI_Controller
 
             $user = $this->Auth_model->get_user($username);
 
-            if ($user &&  $user['password'] == $password) {
+            if ($user && password_verify($password, $user['password'])) {
                 // Set session data
                 $this->session->set_userdata('username', $user['username']);
                 redirect('dashboard'); // Redirect to the dashboard or another page
