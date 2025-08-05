@@ -24,4 +24,12 @@ class Dashboard extends CI_Controller
         $this->load->view('dashboard/index', $data);
         //$this->load->view('templates/footer');
     }
+
+    public function test()
+    {
+        $data['title'] = 'Test Page';
+        $this->load->view('templates/header', $data);
+        $this->load->view('dashboard/test', $data);
+        //$this->load->view('templates/footer');
+    }
 }
