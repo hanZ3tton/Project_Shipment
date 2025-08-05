@@ -1,3 +1,9 @@
+<?php
+if ($this->session->userdata('username') == null) {
+    redirect('auth');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

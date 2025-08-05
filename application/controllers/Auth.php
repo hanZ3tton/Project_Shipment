@@ -11,10 +11,6 @@ class Auth extends CI_Controller
         $this->load->model('Auth_model'); // Assuming you have a User_model for user operations
         $this->load->library('form_validation');
         $this->load->database();
-
-        if ($this->session->userdata('username')) {
-            redirect('dashboard');
-        }
     }
 
     public function index()
@@ -46,6 +42,9 @@ class Auth extends CI_Controller
                 $this->load->view('templates/auth_footer');
             }
         }
+        if ($this->session->userdata('username')) {
+            redirect('dashboard');
+        }
     }
 
     public function registration()
@@ -68,6 +67,9 @@ class Auth extends CI_Controller
             $this->Auth_model->create_user();
             redirect('dashboard'); // Redirect to the login page after successful registration
         }
+        if ($this->session->userdata('username')) {
+            redirect('dashboard');
+        }
     }
 
 
@@ -75,7 +77,7 @@ class Auth extends CI_Controller
     {
         // Perform logout operations
         $this->session->sess_destroy();
-        redirect('auth/login');
+        redirect('auth');
     }
 
     public function dummy_login()
