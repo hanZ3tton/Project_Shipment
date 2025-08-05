@@ -17,7 +17,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="<?= base_url("/") ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -32,7 +32,7 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item active">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="<?= base_url('user') ?>">
             <i class="fas fa-fw fa-users"></i>
             <span>Table User</span></a>
     </li>

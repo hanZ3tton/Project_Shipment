@@ -20,16 +20,19 @@ class Dashboard extends CI_Controller
 
         $data['title'] = 'Dashboard';
         // $data['user_data'] = $this->Dashboard_model->get_user_data($this->session->userdata('username')); 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/navbar', $data);
-        $this->load->view('dashboard/index', $data);
-        //$this->load->view('templates/footer');
+
+        $this->load->view('templates/admin_header');
+        $this->load->view('templates/admin_sidebar');
+        $this->load->view('templates/admin_topbar');
+        $this->load->view('table/index');
+        $this->load->view('templates/admin_footer');
     }
 
     public function test()
     {
         $data['title'] = 'Test Page';
         $this->load->view('templates/header', $data);
+        $this->load->view('templates/navbar', $data);
         $this->load->view('dashboard/test', $data);
         //$this->load->view('templates/footer');
     }

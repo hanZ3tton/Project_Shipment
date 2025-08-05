@@ -11,7 +11,12 @@ class Auth extends CI_Controller
         $this->load->model('Auth_model'); // Assuming you have a User_model for user operations
         $this->load->library('form_validation');
         $this->load->database();
+
+        if ($this->session->userdata('username')) {
+            redirect('dashboard');
+        }
     }
+
     public function index()
     {
         $this->form_validation->set_rules('username', 'Username', 'required');
