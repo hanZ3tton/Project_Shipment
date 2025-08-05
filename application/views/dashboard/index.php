@@ -1,179 +1,153 @@
-<!-- Begin Page Content -->
-<div class="container-fluid">
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipment Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5',
+                        success: '#10b981',
+                        warning: '#f59e0b',
+                        danger: '#ef4444',
+                        light: '#f9fafb',
+                        dark: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
 
-    <!-- Content Row -->
-    <div class="row">
+<body class="bg-light text-dark font-sans">
+    <main class="p-6 space-y-6">
+        <!-- Header -->
+        <div class="flex justify-between items-center">
+            <h1 class="text-2xl font-bold flex items-center gap-2"><i class="bi bi-truck"></i> Shipment Track</h1>
+        </div>
 
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Earnings (Monthly)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
+        <!-- Stats and Charts -->
+        <div class="grid grid-cols-3 gap-6">
+            <!-- This month order -->
+            <div class="bg-white p-4 rounded shadow">
+                <h2 class="font-semibold flex items-center gap-2"><i class="bi bi-calendar3"></i> This Month Order</h2>
+                <canvas id="monthOrderChart" height="150" class="mt-4"></canvas>
+            </div>
+
+            <!-- Shipment Success -->
+            <div class="bg-white p-4 rounded shadow">
+                <h2 class="font-semibold flex items-center gap-2"><i class="bi bi-bar-chart-line"></i> Shipment Success</h2>
+                <canvas id="shipmentSuccessChart" height="150" class="mt-4"></canvas>
+            </div>
+
+            <!-- Credit -->
+            <div class="bg-white p-4 rounded shadow">
+                <h2 class="font-semibold flex items-center gap-2"><i class="bi bi-credit-card-2-back"></i> Credit</h2>
+                <p class="text-3xl font-bold text-primary mt-2">$4,500</p>
+                <p class="text-sm text-success mt-1">+12% from last month</p>
             </div>
         </div>
 
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Earnings (Annual)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
+        <!-- Revenue -->
+        <div class="grid grid-cols-2 gap-6">
+            <div class="bg-white p-4 rounded shadow">
+                <h2 class="font-semibold flex items-center gap-2"><i class="bi bi-cash-stack"></i> Daily Revenue</h2>
+                <p class="text-3xl font-bold text-green-600 mt-2">$850</p>
+                <p class="text-sm text-gray-500">Today’s income</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <h2 class="font-semibold flex items-center gap-2"><i class="bi bi-wallet2"></i> Monthly Revenue</h2>
+                <p class="text-3xl font-bold text-green-600 mt-2">$18,450</p>
+                <p class="text-sm text-gray-500">August Total</p>
             </div>
         </div>
+    </main>
 
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Shipment success
-                            </div>
-                            <div class="row no-gutters align-items-center">
-                                <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress progress-sm mr-2">
-                                        <div class="progress-bar bg-info" role="progressbar"
-                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                            aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fa fa-check-circle fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <script>
+        const ctx1 = document.getElementById('monthOrderChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                datasets: [{
+                    label: 'Orders',
+                    data: [80, 90, 95, 100, 110, 125, 140, 155],
+                    backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                    borderColor: 'rgba(99, 102, 241, 1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: 'white',
+                    pointBorderColor: 'rgba(99, 102, 241, 1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 
-        <!-- Pending Requests Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Pending Requests</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        // Custom plugin for center text
+        Chart.register({
+            id: 'doughnutCenterText',
+            beforeDraw(chart) {
+                if (chart.config.type !== 'doughnut') return;
 
-    <!-- Content Row -->
+                const width = chart.width;
+                const height = chart.height;
+                const ctx = chart.ctx;
+                ctx.restore();
+                const fontSize = (height / 114).toFixed(2);
+                ctx.font = `${fontSize}em sans-serif`;
+                ctx.textBaseline = "middle";
+                ctx.fillStyle = "#10b981";
 
-    <div class="row">
+                const text = '65%';
+                const textX = Math.round((width - ctx.measureText(text).width) / 2);
+                const textY = height / 2.2;
+                ctx.fillText(text, textX, textY);
+                ctx.save();
+            }
+        });
 
-        <!-- Area Chart -->
-        <div class="col-xl-8 col-lg-7">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                            aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Dropdown Header:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="myAreaChart" width="708" height="400" style="display: block; height: 320px; width: 567px;" class="chartjs-render-monitor"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
+        const ctx2 = document.getElementById('shipmentSuccessChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Success', 'Not Yet'],
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['rgba(16, 185, 129, 0.7)', 'rgba(229, 231, 235, 1)'],
+                    borderColor: ['rgba(16, 185, 129, 1)', 'rgba(229, 231, 235, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
 
-        <!-- Pie Chart -->
-        <div class="col-xl-4 col-lg-5">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                            aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Dropdown Header:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="chart-pie pt-4 pb-2">
-                        <canvas id="myPieChart"></canvas>
-                    </div>
-                    <div class="mt-4 text-center small">
-                        <span class="mr-2">
-                            <i class="fas fa-circle text-primary"></i> Direct
-                        </span>
-                        <span class="mr-2">
-                            <i class="fas fa-circle text-success"></i> Social
-                        </span>
-                        <span class="mr-2">
-                            <i class="fas fa-circle text-info"></i> Referral
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-<!-- /.container-fluid -->
-<!-- End of Main Content -->
+</html>
