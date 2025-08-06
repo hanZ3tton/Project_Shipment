@@ -23,15 +23,38 @@
     <hr class="sidebar-divider" />
 
     <!-- Heading -->
+    <div class="sidebar-heading">Shipment</div>
+
+    <!-- Nav Item - Table User -->
+    <li class="nav-item <?= ($this->uri->segment(1) == 'user') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('user') ?>">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Shipment</span>
+        </a>
+    </li>
+
+
+    <!-- Divider -->
+    <hr class="sidebar-divider" />
+
+    <!-- Heading -->
     <div class="sidebar-heading">User</div>
 
     <!-- Nav Item - Table User -->
     <li class="nav-item <?= ($this->uri->segment(1) == 'user') ? 'active' : '' ?>">
         <a class="nav-link" href="<?= base_url('user') ?>">
             <i class="fas fa-fw fa-users"></i>
-            <span>Table User</span>
+            <span>User Table</span>
         </a>
     </li>
+
+    <li class="nav-item <?= ($this->uri->segment(1) == 'user') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('user') ?>">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Add New User</span>
+        </a>
+    </li>
+
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block" />
