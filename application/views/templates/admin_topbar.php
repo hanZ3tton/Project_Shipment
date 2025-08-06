@@ -123,7 +123,7 @@
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <?= $this->session->userdata('username') ?></span>
                         <img
                             class="img-profile rounded-circle"
-                            src="img/undraw_profile.svg" />
+                            src="https://i.pravatar.cc/40" />
                     </a>
                     <!-- Dropdown - User Information -->
                     <div

@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shipment Table</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
 
     <style>
         .flag {
@@ -22,8 +22,11 @@
     </style>
 </head>
 
+
 <div class="bg-white rounded-xl shadow-lg p-6">
-    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="bi bi-table"></i> Shipment Table</h2>
+    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+        <i class="bi bi-table"></i> Shipment Table
+    </h2>
     <div class="overflow-x-auto">
         <table class="table-auto w-full border border-gray-300 text-sm">
             <thead class="bg-gray-200 text-gray-600">
@@ -36,6 +39,7 @@
                     <th class="p-2 border">Receiver Address</th>
                     <th class="p-2 border">Receiver Country</th>
                     <th class="p-2 border">Receipt Code</th>
+                    <th class="p-2 border">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,7 +49,7 @@
                     <td class="p-2 border">123 Elm St, New York</td>
                     <td class="p-2 border text-center">
                         <div class="flex flex-col items-center">
-                            <img src="https://flagcdn.com/us.svg" alt="USA" class="flag">
+                            <img src="https://flagcdn.com/us.svg" alt="USA" class="flag" />
                             <span class="text-xs mt-1">USA</span>
                         </div>
                     </td>
@@ -53,55 +57,51 @@
                     <td class="p-2 border">Via Roma 22, Rome</td>
                     <td class="p-2 border text-center">
                         <div class="flex flex-col items-center">
-                            <img src="https://flagcdn.com/it.svg" alt="Italy" class="flag">
+                            <img src="https://flagcdn.com/it.svg" alt="Italy" class="flag" />
                             <span class="text-xs mt-1">Italy</span>
                         </div>
                     </td>
                     <td class="p-2 border text-center">#RX239840</td>
+                    <td class="p-2 border text-center">
+                        <button data-id="1" class="btn-detail bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-xs">
+                            <i class="bi bi-eye"></i> Detail
+                        </button>
+                    </td>
                 </tr>
-                <tr class="hover:bg-gray-50">
-                    <td class="p-2 border text-center">2</td>
-                    <td class="p-2 border">Alice Nguyen</td>
-                    <td class="p-2 border">15 Jalan Merdeka, Jakarta</td>
-                    <td class="p-2 border text-center">
-                        <div class="flex flex-col items-center">
-                            <img src="https://flagcdn.com/id.svg" alt="Indonesia" class="flag">
-                            <span class="text-xs mt-1">Indonesia</span>
-                        </div>
-                    </td>
-                    <td class="p-2 border">Satoshi Tanaka</td>
-                    <td class="p-2 border">3-4-5 Shibuya, Tokyo</td>
-                    <td class="p-2 border text-center">
-                        <div class="flex flex-col items-center">
-                            <img src="https://flagcdn.com/jp.svg" alt="Japan" class="flag">
-                            <span class="text-xs mt-1">Japan</span>
-                        </div>
-                    </td>
-                    <td class="p-2 border text-center">#JP993211</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                    <td class="p-2 border text-center">3</td>
-                    <td class="p-2 border">Emma Müller</td>
-                    <td class="p-2 border">Hauptstrasse 17, Berlin</td>
-                    <td class="p-2 border text-center">
-                        <div class="flex flex-col items-center">
-                            <img src="https://flagcdn.com/de.svg" alt="Germany" class="flag">
-                            <span class="text-xs mt-1">Germany</span>
-                        </div>
-                    </td>
-                    <td class="p-2 border">Liam O'Connor</td>
-                    <td class="p-2 border">45 Green Rd, Dublin</td>
-                    <td class="p-2 border text-center">
-                        <div class="flex flex-col items-center">
-                            <img src="https://flagcdn.com/ie.svg" alt="Ireland" class="flag">
-                            <span class="text-xs mt-1">Ireland</span>
-                        </div>
-                    </td>
-                    <td class="p-2 border text-center">#IR123990</td>
-                </tr>
+
+                <!-- Tambahkan baris lainnya seperti di atas -->
             </tbody>
         </table>
     </div>
 </div>
+
+<!-- Modal -->
+<div id="detailModal"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md relative">
+        <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-500 hover:text-red-500">
+            <i class="bi bi-x-lg"></i>
+        </button>
+        <h3 class="text-xl font-semibold mb-4"><i class="bi bi-card-text"></i> Detail Pengiriman</h3>
+        <p class="text-gray-700">Sebagai contoh</p>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById("detailModal");
+
+    document.querySelectorAll(".btn-detail").forEach(button => {
+        button.addEventListener("click", function() {
+            // nanti kamu bisa ambil detail berdasarkan data-id
+            const id = this.dataset.id;
+            modal.classList.remove("hidden");
+        });
+    });
+
+    function closeModal() {
+        modal.classList.add("hidden");
+    }
+</script>
+</body>
 
 </html>
