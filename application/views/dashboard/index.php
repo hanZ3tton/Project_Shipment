@@ -59,6 +59,9 @@
                 <h2 class="font-semibold flex items-center gap-2"><i class="fa fa-check-circle text-green-500" aria-hidden="true"></i> </i> Shipment Success</h2>
                 <canvas id="shipmentSuccessChart" height="150" class="mt-4"></canvas>
             </div>
+            <div class="bg-white p-4 rounded shadow">
+
+            </div>
         </div>
 
         <!-- Revenue -->
