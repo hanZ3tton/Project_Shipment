@@ -1,4 +1,4 @@
-    <form class="bg-white p-4" method="post" action="#">
+    <form class="bg-white p-4" method="post" action="<?= base_url('app/edit') ?>">
         <h3 class="mb-4">Edit User Information</h3>
 
         <div class="form-row">

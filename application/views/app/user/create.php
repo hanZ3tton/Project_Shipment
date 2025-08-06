@@ -1,4 +1,4 @@
-    <form class="bg-white p-4" method="post" action="<?= base_url('app/user/index_create') ?>">
+    <form class="bg-white p-4" method="post" action="<?= base_url('app/user/create') ?>">
         <h3 class="mb-4">Add New User</h3>
 
         <div class="form-row">
