@@ -1,6 +1,6 @@
 <!-- Sidebar -->
 <ul
-    class="navbar-nav bg-primary sidebar sidebar-dark accordion"
+    class="navbar-nav bg-primary sidebar sidebar-dark accordion toggled"
     id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a
