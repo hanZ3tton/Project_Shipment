@@ -54,15 +54,18 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
         $this->form_validation->set_rules('city', 'City', 'required');
         $this->form_validation->set_rules('postalCode', 'Postal Code', 'required|numeric');
+        $this->form_validation->set_rules('phoneNum', 'Phone Number', 'required|numeric');
         $this->form_validation->set_rules('address', 'Address', 'required');
         $this->form_validation->set_rules(
             'password1',
             'Password',
-            'required|min_length[8]|regex_match[/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/]',
-            [
-                'regex_match' => 'Password must contain uppercase, lowercase, numbers, and symbols.'
-            ]
+            'required|min_length[8]'
         );
+        // |regex_match[/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/]',
+        // [
+        //     'regex_match' => 'Password must contain uppercase, lowercase, numbers, and symbols.'
+        // ]
+        // );
         $this->form_validation->set_rules('password2', 'Confirm Password', 'required|matches[password1]');
 
         if ($this->form_validation->run() == FALSE) {
