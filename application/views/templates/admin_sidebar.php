@@ -26,8 +26,8 @@
     <div class="sidebar-heading">Shipment</div>
 
     <!-- Nav Item - Table User -->
-    <li class="nav-item <?= ($this->uri->segment(1) == 'user') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('user') ?>">
+    <li class="nav-item <?= ($this->uri->segment(1) == 'shipment') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('shipment') ?>">
             <i class="fas fa-fw fa-users"></i>
             <span>Shipment</span>
         </a>
@@ -48,8 +48,8 @@
         </a>
     </li>
 
-    <li class="nav-item <?= ($this->uri->segment(1) == 'user') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('user') ?>">
+    <li class="nav-item <?= ($this->uri->segment(1) == 'user/create') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('user/create') ?>">
             <i class="fas fa-fw fa-users"></i>
             <span>Add New User</span>
         </a>
