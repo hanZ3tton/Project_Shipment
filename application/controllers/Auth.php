@@ -15,18 +15,16 @@ class Auth extends CI_Controller
 
     public function index()
     {
+        $data['title'] = 'Login Page';
+        $data['view'] = 'auth/login';
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
-        $data['title'] = 'Login Page';
-        if ($this->form_validation->run() == FALSE) {
 
-            $this->load->view('templates/auth_header', $data);
-            $this->load->view('auth/login', $data);
-            $this->load->view('templates/auth_footer');
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('guest', $data);
         } else {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
-
             $user = $this->Auth_model->get_user($username);
 
             if ($user && password_verify($password, $user['password'])) {
@@ -37,9 +35,7 @@ class Auth extends CI_Controller
                 $this->form_validation->set_rules('login_failed', '', 'callback_dummy_login');
                 $this->form_validation->set_message('dummy_login', 'incorrect username or password');
                 $this->form_validation->run();
-                $this->load->view('templates/auth_header', $data);
-                $this->load->view('auth/login', $data);
-                $this->load->view('templates/auth_footer');
+                $this->load->view('guest', $data);
             }
         }
         if ($this->session->userdata('username')) {
@@ -70,9 +66,8 @@ class Auth extends CI_Controller
 
         if ($this->form_validation->run() == FALSE) {
             $data['title'] = 'Registration Page';
-            $this->load->view('templates/auth_header', $data);
-            $this->load->view('auth/registration', $data);
-            $this->load->view('templates/auth_footer');
+            $data['view'] = 'auth/registration';
+            $this->load->view('guest', $data);
         } else {
             $this->Auth_model->create_user();
             redirect('dashboard'); // Redirect to the login page after successful registration
@@ -81,7 +76,6 @@ class Auth extends CI_Controller
             redirect('dashboard');
         }
     }
-
 
     public function logout()
     {
