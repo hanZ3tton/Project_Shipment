@@ -16,8 +16,10 @@ class User extends CI_Controller
     public function index()
     {
         $data['users'] = $this->Auth_model->getAllUsers();
-        $data['title'] = 'List User Page';
+        $data['title'] = 'User List';
         $data['view'] = 'app/user/index';
+        $data['view_style'] = 'app/user/index_style';
+        $data['view_script'] = 'app/user/index_script';
         $this->load->view('app', $data);
     }
 
