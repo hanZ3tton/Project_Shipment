@@ -1,4 +1,5 @@
-<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<!-- Sidebar -->
+<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('dashboard/index')  ?> ">
         <div class="sidebar-brand-icon rotate-n-15">
@@ -12,9 +13,23 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item <?= ($this->uri->segment(1) == 'dashboard') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('dashboard/index') ?>">
+        <a class="nav-link" href="<?= base_url('app/dashboard') ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider" />
+
+    <!-- Heading -->
+    <div class="sidebar-heading">Shipment</div>
+
+    <!-- Nav Item - Table User -->
+    <li class="nav-item <?= ($this->uri->segment(1) == 'shipment') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('app/shipment') ?>">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Shipment</span>
         </a>
     </li>
 
@@ -26,9 +41,16 @@
 
     <!-- Nav Item - Table User -->
     <li class="nav-item <?= ($this->uri->segment(1) == 'user') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('user') ?>">
+        <a class="nav-link" href="<?= base_url('app/user') ?>">
             <i class="fas fa-fw fa-users"></i>
             <span>Table User</span>
+        </a>
+    </li>
+    <!-- Nav Item - Table User -->
+    <li class="nav-item <?= ($this->uri->segment(1) == 'user/create') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('app/user/create') ?>">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Add New User</span>
         </a>
     </li>
 
@@ -40,3 +62,4 @@
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 </ul>
+<!-- End of Sidebar -->

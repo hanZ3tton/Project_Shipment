@@ -15,13 +15,10 @@ class User extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'List User Page';
         $data['users'] = $this->Auth_model->getAllUsers();
-        $this->load->view('templates/admin_header');
-        $this->load->view('templates/admin_sidebar');
-        $this->load->view('templates/admin_topbar');
-        $this->load->view('user/index', $data);
-        $this->load->view('templates/admin_footer');
+        $data['title'] = 'List User Page';
+        $data['view'] = 'app/user/index';
+        $this->load->view('app', $data);
     }
 
     public function create()
@@ -37,14 +34,11 @@ class User extends CI_Controller
         $this->form_validation->set_rules('phoneNum', 'Phone Number', 'required|numeric');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header');
-            $this->load->view('templates/admin_sidebar');
-            $this->load->view('templates/admin_topbar');
-            $this->load->view('user/create');
-            $this->load->view('templates/admin_footer');
+            $data['view'] = 'app/user/create';
+            $this->load->view('app', $data);
         } else {
             $this->Auth_model->create_user();
-            redirect('user');
+            redirect('app/user');
         }
     }
 
@@ -61,19 +55,16 @@ class User extends CI_Controller
         $this->form_validation->set_rules('phoneNum', 'Phone Number', 'required|numeric');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header');
-            $this->load->view('templates/admin_sidebar');
-            $this->load->view('templates/admin_topbar');
-            $this->load->view('user/edit', $data);
-            $this->load->view('templates/admin_footer');
+            $data['view'] = 'app/user/edit';
+            $this->load->view('app', $data);
         } else {
             $this->Auth_model->update_user($id);
-            redirect('user');
+            redirect('app/user');
         }
     }
     public function delete($id)
     {
         $this->Auth_model->deleteUser($id);
-        redirect('user');
+        redirect('app/user');
     }
 }

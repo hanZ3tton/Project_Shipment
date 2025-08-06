@@ -14,11 +14,10 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-
-        $this->load->view('templates/admin_header');
-        $this->load->view('templates/admin_sidebar');
-        $this->load->view('templates/admin_topbar');
-        $this->load->view('dashboard/index');
-        $this->load->view('templates/admin_footer');
+        $data['title'] = 'Dashboard';
+        $data['view'] = 'app/dashboard/index';
+        $data['view_style'] = 'app/dashboard/index_style';
+        $data['view_script'] = 'app/dashboard/index_script';
+        $this->load->view('app', $data);
     }
 }

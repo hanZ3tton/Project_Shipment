@@ -30,7 +30,7 @@ class Auth extends CI_Controller
             if ($user && password_verify($password, $user['password'])) {
                 // Set session data
                 $this->session->set_userdata('username', $user['username']);
-                redirect('dashboard'); // Redirect to the dashboard or another page
+                redirect('app/dashboard'); // Redirect to the app/dashboard or another page
             } else {
                 $this->form_validation->set_rules('login_failed', '', 'callback_dummy_login');
                 $this->form_validation->set_message('dummy_login', 'incorrect username or password');
@@ -39,7 +39,7 @@ class Auth extends CI_Controller
             }
         }
         if ($this->session->userdata('username')) {
-            redirect('dashboard');
+            redirect('app/dashboard');
         }
     }
 
@@ -70,10 +70,10 @@ class Auth extends CI_Controller
             $this->load->view('guest', $data);
         } else {
             $this->Auth_model->create_user();
-            redirect('dashboard'); // Redirect to the login page after successful registration
+            redirect('app/dashboard'); // Redirect to the login page after successful registration
         }
         if ($this->session->userdata('username')) {
-            redirect('dashboard');
+            redirect('app/dashboard');
         }
     }
 

@@ -1,10 +1,9 @@
-<!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Tables user</h1>
     <p class="mb-4">
     </p>
-    <a href="<?= base_url("user/create") ?>" class="btn btn-primary mb-3">Add New User</a>
+    <a href="<?= base_url("app/user/create") ?>" class="btn btn-primary mb-3">Add New User</a>
 
 
     <!-- DataTales Example -->
@@ -53,8 +52,8 @@
                                 <td><?= $user->address ?> </td>
                                 <td><?= $user->postal_code ?> </td>
                                 <td>
-                                    <a href="<?= base_url('user/edit/' . $user->id) ?>" class="btn btn-success">Edit</a>
-                                    <a href="<?= base_url('user/delete/' . $user->id) ?>" class="btn btn-danger">Delete</a>
+                                    <a href="<?= base_url('app/user/edit/' . $user->id) ?>" class="btn btn-success">Edit</a>
+                                    <a href="<?= base_url('app/user/delete/' . $user->id) ?>" class="btn btn-danger">Delete</a>
                                 </td>
 
                             </tr>
@@ -65,6 +64,3 @@
         </div>
     </div>
 </div>
-<!-- /.container-fluid -->
-</div>
-<!-- End of Main Content -->
