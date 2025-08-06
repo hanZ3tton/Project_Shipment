@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2025 at 01:53 PM
+-- Generation Time: Aug 06, 2025 at 06:23 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -34,18 +34,18 @@ CREATE TABLE `shipment` (
   `sender_email` varchar(500) DEFAULT NULL,
   `sender_address` varchar(500) DEFAULT NULL,
   `sender_country_from` varchar(500) DEFAULT NULL,
-  `sender_postal_code` int(11) DEFAULT NULL,
+  `sender_postal_code` varchar(11) DEFAULT NULL,
   `receiver_full_name` varchar(500) DEFAULT NULL,
   `receiver_email` varchar(500) DEFAULT NULL,
   `receiver_address` varchar(500) DEFAULT NULL,
   `receiver_country` varchar(500) DEFAULT NULL,
-  `receiver_postal_code` int(11) DEFAULT NULL,
-  `shipment_price` varchar(11) DEFAULT NULL,
+  `receiver_postal_code` varchar(11) DEFAULT NULL,
+  `shipment_price` decimal(20,0) DEFAULT NULL,
   `receipt_code` varchar(500) DEFAULT NULL,
   `receiver_phone_number` varchar(128) DEFAULT NULL,
   `weight` varchar(128) DEFAULT NULL,
-  `lenght` varchar(128) NOT NULL,
-  `widht` varchar(128) NOT NULL,
+  `length` varchar(128) NOT NULL,
+  `width` varchar(128) NOT NULL,
   `height` varchar(128) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `user_id` int(11) DEFAULT NULL,
@@ -56,8 +56,8 @@ CREATE TABLE `shipment` (
 -- Dumping data for table `shipment`
 --
 
-INSERT INTO `shipment` (`id`, `item_name`, `sender_full_name`, `sender_email`, `sender_address`, `sender_country_from`, `sender_postal_code`, `receiver_full_name`, `receiver_email`, `receiver_address`, `receiver_country`, `receiver_postal_code`, `shipment_price`, `receipt_code`, `receiver_phone_number`, `weight`, `lenght`, `widht`, `height`, `created_at`, `user_id`, `service_id`) VALUES
-(1, 'Glock 18', 'Jokowi', 'HidupJokowi@gmail.com', 'Istana Presiden', 'Indonesia', 123412, 'Joe Biden', 'JoeBiden@gmail.com', 'White House', 'Usa', 123456, '3500000', 'Niga', '6783412911', '2', '', '', '', '2025-08-05 11:35:14', 1, 2);
+INSERT INTO `shipment` (`id`, `item_name`, `sender_full_name`, `sender_email`, `sender_address`, `sender_country_from`, `sender_postal_code`, `receiver_full_name`, `receiver_email`, `receiver_address`, `receiver_country`, `receiver_postal_code`, `shipment_price`, `receipt_code`, `receiver_phone_number`, `weight`, `length`, `width`, `height`, `created_at`, `user_id`, `service_id`) VALUES
+(1, 'Glock 18', 'Jokowi', 'HidupJokowi@gmail.com', 'Istana Presiden', 'Indonesia', '123412', 'Joe Biden', 'JoeBiden@gmail.com', 'White House', 'Usa', '123456', 3500000, 'Niga', '6783412911', '2', '', '', '', '2025-08-05 11:35:14', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -128,15 +128,16 @@ CREATE TABLE `user` (
   `postal_code` int(11) DEFAULT NULL,
   `email` varchar(500) DEFAULT NULL,
   `password` varchar(500) DEFAULT NULL,
-  `created_at` date DEFAULT NULL
+  `created_at` date DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `image`, `full_name`, `phone_number`, `address`, `city`, `postal_code`, `email`, `password`, `created_at`) VALUES
-(1, 'RajaGeming', 'default.jpg', 'M Raja', '6583472934', 'Mars', 'Jawa', 12412, 'jawa@gmail.com', 'RajaGeming123', '2025-08-05');
+INSERT INTO `user` (`id`, `username`, `image`, `full_name`, `phone_number`, `address`, `city`, `postal_code`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'RajaGeming', 'default.jpg', 'M Raja', '6583472934', 'Mars', 'Jawa', 12412, 'jawa@gmail.com', 'RajaGeming123', '2025-08-05', '2025-08-06 04:20:10');
 
 --
 -- Indexes for dumped tables
