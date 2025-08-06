@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2025 at 06:23 AM
+-- Generation Time: Aug 06, 2025 at 10:08 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -20,6 +20,50 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_shipment`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(500) DEFAULT NULL,
+  `code` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `code`) VALUES
+(1, 'Electronic', 'ELC'),
+(2, 'Document', 'DOC'),
+(3, 'Food', 'FD');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courier`
+--
+
+CREATE TABLE `courier` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(500) DEFAULT NULL,
+  `email` varchar(500) DEFAULT NULL,
+  `phone_number` varchar(500) DEFAULT NULL,
+  `vehicle` varchar(500) DEFAULT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `courier`
+--
+
+INSERT INTO `courier` (`id`, `name`, `email`, `phone_number`, `vehicle`, `created_at`, `updated_at`) VALUES
+(1, 'Agus', 'Agus@gmail.com', '1324123', 'Ni-san', '2025-08-06', '2025-08-06 08:08:21');
 
 -- --------------------------------------------------------
 
@@ -137,11 +181,24 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `image`, `full_name`, `phone_number`, `address`, `city`, `postal_code`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'RajaGeming', 'default.jpg', 'M Raja', '6583472934', 'Mars', 'Jawa', 12412, 'jawa@gmail.com', 'RajaGeming123', '2025-08-05', '2025-08-06 04:20:10');
+(1, 'RajaGeming', 'default.jpg', 'M Raja', '6583472934', 'Mars', 'Jawa', 12412, 'jawa@gmail.com', 'RajaGeming123', '2025-08-05', '2025-08-06 04:20:10'),
+(2, 'Nigga', NULL, 'Nigga', '123123', 'Nigga', 'Nigga', 123123, 'Nigga@Nigga.com', '$2y$10$mvWUFFg.3HPYOpSmQd8OQutYj8AQTEFCcvujrPnaxF7S7C9JjNVZS', NULL, '2025-08-06 04:32:05');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `courier`
+--
+ALTER TABLE `courier`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `shipment`
@@ -178,6 +235,18 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `courier`
+--
+ALTER TABLE `courier`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `shipment`
 --
 ALTER TABLE `shipment`
@@ -205,7 +274,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
