@@ -30,6 +30,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>City</th>
+                            <th>Phone Number</th>
                             <th>Address</th>
                             <th>Postal Code</th>
                             <th>Action</th>
@@ -40,6 +41,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>City</th>
+                            <th>Phone Number</th>
                             <th>Address</th>
                             <th>Postal Code</th>
                             <th>Action</th>
@@ -50,6 +52,7 @@
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
                             <td>Edinburgh</td>
+                            <td>081299314158</td>
                             <td>61</td>
                             <td>2011/04/25</td>
                             <td>

@@ -28,6 +28,18 @@
 
             </div>
         </div>
+        <div class="form-row">
+            <div class=" form-group col-md-3">
+                <label for="password1">Password</label>
+                <input type="text" class="form-control" id="password1" name="password1">
+                <?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
+
+            </div>
+            <div class="form-group col-md-3">
+                <label for="password2">Confrim Password</label>
+                <input type="text" class="form-control" id="password2" name="password2">
+            </div>
+        </div>
         <div class="form-group col-md-6 p-0">
             <label for="address">Address</label>
             <textarea class="form-control" style="resize: none;" rows="3" id="address" name="address"></textarea>
