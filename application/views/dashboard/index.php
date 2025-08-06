@@ -46,7 +46,7 @@
         <!-- Stats and Charts -->
         <div class="grid grid-cols-3 gap-6">
             <!-- This month order -->
-            <div class="bg-white shadow-md rounded-xl p-10">
+            <div class="bg-white shadow-md rounded-xl p-4 ">
                 <div class="flex items-center space-x-2 mb-2">
                     <i class="bi bi-bar-chart-fill text-blue-500"></i>
                     <h3 class="text-md font-semibold">This Month Order</h3>
