@@ -10,6 +10,9 @@ class Dashboard extends CI_Controller
         // $this->load->model('Dashboard_model'); // Assuming you have a Dashboard_model for dashboard operations
         $this->load->library('form_validation');
         $this->load->database();
+        if ($this->session->userdata('username') == null) {
+            redirect('auth');
+        }
     }
 
     public function index()
