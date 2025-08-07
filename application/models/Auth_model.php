@@ -5,6 +5,7 @@ class Auth_model extends CI_Model
     {
         parent::__construct();
         $this->load->database(); // Load the database
+        date_default_timezone_set('Asia/Jakarta');
     }
 
     // Method to get user by email
@@ -26,7 +27,7 @@ class Auth_model extends CI_Model
             'postal_code' => $this->input->post('postalCode'),
             'address' => $this->input->post('address'),
             'created_at' => date('Y-m-d h:i:s'), // Set the current timestamp
-            'update_at' => date('Y-m-d h:i:s'), // Set the current timestamp
+            'updated_at' => date('Y-m-d h:i:s'), // Set the current timestamp
             'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT), // Hash the password
         ); {
 
