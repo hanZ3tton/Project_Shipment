@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2025 at 06:50 AM
+-- Generation Time: Aug 07, 2025 at 11:11 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -66,6 +66,59 @@ CREATE TABLE `inbound` (
   `goods_category` varchar(500) DEFAULT NULL,
   `notes` varchar(500) DEFAULT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `manifests`
+--
+
+CREATE TABLE `manifests` (
+  `id` bigint(20) NOT NULL,
+  `manifest_code` varchar(255) DEFAULT NULL,
+  `manifest_date` date DEFAULT NULL,
+  `mawb` varchar(255) DEFAULT NULL,
+  `flight_date` date DEFAULT NULL,
+  `flight_number` varchar(255) DEFAULT NULL,
+  `lastmile_vendor` varchar(255) DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `manifest_details`
+--
+
+CREATE TABLE `manifest_details` (
+  `id` bigint(20) NOT NULL,
+  `manifest_id` bigint(20) DEFAULT NULL,
+  `detail_number` varchar(255) DEFAULT NULL,
+  `detail_code` varchar(255) DEFAULT NULL,
+  `weight` decimal(10,0) DEFAULT NULL,
+  `height` decimal(10,0) DEFAULT NULL,
+  `width` decimal(10,0) DEFAULT NULL,
+  `length` decimal(10,0) DEFAULT NULL,
+  `remark` text DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `manifest_detail_items`
+--
+
+CREATE TABLE `manifest_detail_items` (
+  `id` bigint(20) NOT NULL,
+  `manifest_detail_id` bigint(20) DEFAULT NULL,
+  `airwaybill` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -181,8 +234,10 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `image`, `full_name`, `phone_number`, `address`, `city`, `postal_code`, `email`, `password`, `created_at`) VALUES
-(1, 'Nigga', 'nigger', 'Nigga', 41232, 'sefafasd', 'awdsdw', 1123123, 'wadaswd@gmail.com', 'Nigga1234', '2025-08-07');
+INSERT INTO `user` (`id`, `username`, `image`, `full_name`, `phone_number`, `address`, `city`, `postal_code`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'Nigga', 'nigger', 'Nigga', 41232, 'sefafasd', 'awdsdw', 1123123, 'wadaswd@gmail.com', 'Nigga1234', '2025-08-07', NULL),
+(2, 'Nigga1234', '', 'NiggaNigga', 12345, 'Nigga', 'Nigga', 1234, 'Nigga@Nigga.com', '$2y$10$GHiqM1xbEREHUYlyNXfw1OkB1S7Em7Cv41YdjTRyMacTqYpCnDF86', '0000-00-00', NULL),
+(3, 'Nigga1', '', 'MyNigga', 513123, 'Niggaa', 'wdawdasd', 4123, 'Nigga@gmail.com', 'Nigga12345', '2025-08-07', '2025-08-07');
 
 --
 -- Indexes for dumped tables
@@ -204,6 +259,24 @@ ALTER TABLE `courier`
 -- Indexes for table `inbound`
 --
 ALTER TABLE `inbound`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `manifests`
+--
+ALTER TABLE `manifests`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `manifest_details`
+--
+ALTER TABLE `manifest_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `manifest_detail_items`
+--
+ALTER TABLE `manifest_detail_items`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -299,7 +372,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
