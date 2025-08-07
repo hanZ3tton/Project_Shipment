@@ -1,92 +1,154 @@
-<form action="" method="post">
-    <label for="">Nama Barang</label>
+<!DOCTYPE html>
+<html lang="en">
 
-    <label for="senderName">Nama Pengirim</label>
-    <input type="text" name="senderName" id="senderName"><br>
-    <?php echo form_error('senderName', '<small class="text-danger pl-3">', '</small>'); ?> <br>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shipping Form</title>
 
-    <label for="senderEmail">Email Pengirim</label>
-    <input type="email" name="senderEmail" id="senderEmail"><br>
-    <?php echo form_error('senderEmail', '<small class="text-danger pl-3">', '</small>'); ?> <br>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <label for="senderAddress">Alamat Pengirim</label>
-    <input type="text" name="senderAddress" id="senderAddress"><br>
-    <?php echo form_error('senderAddress', '<small class="text-danger pl-3">', '</small>'); ?> <br>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
 
-    <label for="senderCountry">Negara Pengirim</label>
-    <input type="text" name="senderCountry" id="senderCountry"><br>
-    <?php echo form_error('senderCountry', '<small class="text-danger pl-3">', '</small>'); ?> <br>
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
+    <h2 class="text-2xl font-bold mb-6 text-blue-600 flex items-center gap-2">
+        <i class="bi bi-box-fill"></i> Shipment Form
+    </h2>
 
-    <label for="senderCity">Kota Pengirim</label>
-    <input type="text" name="senderCity" id="senderCity"><br>
-    <?php echo form_error('senderCity', '<small class="text-danger pl-3">', '</small>'); ?> <br>
+    <form id="shippingForm" class="space-y-6">
 
-    <label for="senderPostalCode">Kode Pos Pengirim</label>
-    <input type="text" name="senderPostalCode" id="senderPostalCode"><br>
-    <?php echo form_error('senderPostalCode', '<small class="text-danger pl-3">', '</small>'); ?> <br>
+        <!-- Sender Details -->
+        <div>
+            <h3 class="text-lg font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                <i class="bi bi-person-fill"></i> Sender Details
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label>Sender Name</label>
+                    <input type="text" class="w-full p-2 border rounded-md" placeholder="Full Name">
+                </div>
+                <div>
+                    <label>Sender Email</label>
+                    <input type="email" class="w-full p-2 border rounded-md" placeholder="email@example.com">
+                </div>
+                <div class="md:col-span-2">
+                    <label>Sender Address</label>
+                    <input type="text" class="w-full p-2 border rounded-md" placeholder="123 Example Street">
+                </div>
+                <div>
+                    <label>Sender Country</label>
+                    <input type="text" class="w-full p-2 border rounded-md" placeholder="Indonesia">
+                </div>
+                <div>
+                    <label>Sender City</label>
+                    <input type="text" class="w-full p-2 border rounded-md" placeholder="Jakarta">
+                </div>
+                <div>
+                    <label>Sender Postal Code</label>
+                    <input type="text" class="w-full p-2 border rounded-md" placeholder="54321">
+                </div>
+                <div>
+                    <label>Sender Phone Number</label>
+                    <input type="tel" class="w-full p-2 border rounded-md" placeholder="+62 812 3456 7890">
+                </div>
+            </div>
+        </div>
 
-    <label for="senderPhone">No. HP Pengirim</label>
-    <input type="text" name="senderPhone" id="senderPhone"><br>
-    <?php echo form_error('senderPhone', '<small class="text-danger pl-3">', '</small>'); ?> <br>
+        <!-- Recipient Details -->
+        <div>
+            <h3 class="text-lg font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                <i class="bi bi-person-check-fill"></i> Recipient Details
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label>Recipient Name</label>
+                    <input type="text" class="w-full p-2 border rounded-md" placeholder="Full Name">
+                </div>
+                <div>
+                    <label>Recipient Email</label>
+                    <input type="email" class="w-full p-2 border rounded-md" placeholder="email@example.com">
+                </div>
+                <div class="md:col-span-2">
+                    <label>Recipient Address</label>
+                    <input type="text" class="w-full p-2 border rounded-md" placeholder="456 Sample Road">
+                </div>
+                <div>
+                    <label>Recipient Country</label>
+                    <input type="text" class="w-full p-2 border rounded-md" placeholder="Malaysia">
+                </div>
+                <div>
+                    <label>Recipient City</label>
+                    <input type="text" class="w-full p-2 border rounded-md" placeholder="Kuala Lumpur">
+                </div>
+                <div>
+                    <label>Recipient Postal Code</label>
+                    <input type="text" class="w-full p-2 border rounded-md" placeholder="12345">
+                </div>
+                <div>
+                    <label>Recipient Phone Number</label>
+                    <input type="tel" class="w-full p-2 border rounded-md" placeholder="+60 812 3456 7890">
+                </div>
+            </div>
+        </div>
 
-    <label for="receiverName">Nama Penerima</label>
-    <input type="text" name="receiverName" id="receiverName"><br>
-    <?php echo form_error('receiverName', '<small class="text-danger pl-3">', '</small>'); ?> <br>
+        <!-- Package Details -->
+        <div>
+            <h3 class="text-lg font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                <i class="bi bi-archive-fill"></i> Package Details
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="md:col-span-2">
+                    <label>Item Description</label>
+                    <textarea class="w-full p-2 border rounded-md" rows="3" placeholder="Example: Black Asus laptop with charger and bag."></textarea>
+                </div>
+                <div>
+                    <label>Item Category</label>
+                    <select class="w-full p-2 border rounded-md">
+                        <option value="">-- Select Category --</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="books">Books</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Weight (kg)</label>
+                    <input type="number" step="0.01" class="w-full p-2 border rounded-md" placeholder="1.5">
+                </div>
+                <div>
+                    <label>Length (cm)</label>
+                    <input type="number" class="w-full p-2 border rounded-md" placeholder="50">
+                </div>
+                <div>
+                    <label>Width (cm)</label>
+                    <input type="number" class="w-full p-2 border rounded-md" placeholder="30">
+                </div>
+                <div>
+                    <label>Height (cm)</label>
+                    <input type="number" class="w-full p-2 border rounded-md" placeholder="10">
+                </div>
+            </div>
+        </div>
 
-    <label for="receiverEmail">Email Penerima</label>
-    <input type="email" name="receiverEmail" id="receiverEmail"><br>
-    <?php echo form_error('receiverEmail', '<small class="text-danger pl-3">', '</small>'); ?> <br>
+        <!-- Submit Button -->
+        <div class="text-right mt-6">
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition flex items-center gap-2 justify-center">
+                <i class="bi bi-send"></i> Submit Shipment
+            </button>
+        </div>
+    </form>
+</div>
 
-    <label for="receiverAddress">Alamat Penerima</label>
-    <input type="text" name="receiverAddress" id="receiverAddress"><br>
-    <?php echo form_error('receiverAddress', '<small class="text-danger pl-3">', '</small>'); ?> <br>
+<script>
+    document.getElementById("shippingForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        alert("Shipment data has been submitted!");
+    });
+</script>
 
-    <label for="receiverCountry">Negara Penerima</label>
-    <input type="text" name="receiverCountry" id="receiverCountry"><br>
-    <?php echo form_error('receiverCountry', '<small class="text-danger pl-3">', '</small>'); ?> <br>
+</body>
 
-    <label for="receiverCity">Kota Penerima</label>
-    <input type="text" name="receiverCity" id="receiverCity"><br>
-    <?php echo form_error('receiverCity', '<small class="text-danger pl-3">', '</small>'); ?> <br>
-
-    <label for="receiverPostalCode">Kode Pos Penerima</label>
-    <input type="text" name="receiverPostalCode" id="receiverPostalCode"><br>
-    <?php echo form_error('receiverPostalCode', '<small class="text-danger pl-3">', '</small>'); ?> <br>
-
-    <label for="receiverPhone">No. HP Penerima</label>
-    <input type="text" name="receiverPhone" id="receiverPhone"><br>
-    <?php echo form_error('receiverPhone', '<small class="text-danger pl-3">', '</small>'); ?> <br>
-
-    <label for="itemDescription">Deskripsi Barang</label>
-    <input type="text" name="itemDescription" id="itemDescription"><br>
-    <?php echo form_error('itemDescription', '<small class="text-danger pl-3">', '</small>'); ?> <br>
-
-    <label for="itemWeight">Berat Barang (kg)</label>
-    <input type="number" name="itemWeight" id="itemWeight"><br>
-    <?php echo form_error('itemWeight', '<small class="text-danger pl-3">', '</small>'); ?> <br>
-
-
-    <label for="itemValue">Lenght</label>
-    <input type="number" name="itemLength" id="itemLength"><br>
-    <?php echo form_error('itemLength', '<small class="text-danger pl-3">', '</small>'); ?> <br>
-
-    <label for="itemWidth">Width</label>
-    <input type="number" name="itemWidth" id="itemWidth"><br>
-    <?php echo form_error('itemWidth', '<small class="text-danger pl-3">', '</small>'); ?> <br>
-
-    <label for="itemHeight">Height</label>
-    <input type="number" name="itemHeight" id="itemHeight"><br>
-    <?php echo form_error('itemHeight', '<small class="text-danger pl-3">', '</small>'); ?> <br>
-
-    <label for="itemCategory">Kategori Barang</label>
-    <select name="itemCategory" id="itemCategory">
-        <option value="">Pilih Kategori</option>
-        <option value="electronics">Elektronik</option>
-        <option value="clothing">Pakaian</option>
-        <option value="furniture">Perabotan</option>
-        <option value="books">Buku</option>
-        <option value="other">Lainnya</option>
-        <?php echo form_error('itemCategory', '<small class="text-danger pl-3">', '</small>'); ?> <br>
-    </select><br>
-    <button type="submit">submit</button>
-</form>
+</html>
