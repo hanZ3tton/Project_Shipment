@@ -16,6 +16,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $config['page_query_string']    = TRUE;
 $config['query_string_segment'] = 'page';
 $config['use_page_numbers']     = TRUE;
+$config['reuse_query_string'] = TRUE;
 
 // --- Styling Bootstrap 4 ---
 $config['full_tag_open']    = '<ul class="pagination justify-content-center">';

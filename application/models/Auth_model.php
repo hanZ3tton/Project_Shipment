@@ -1,6 +1,8 @@
 <?php
 class Auth_model extends CI_Model
 {
+    protected $table = 'user'; // Define the table name
+
     public function __construct()
     {
         parent::__construct();
@@ -64,20 +66,28 @@ class Auth_model extends CI_Model
     }
 
     // Get User Pagination
-    public function get_user_pagination($limit, $offset, $searchQuery = null)
+    public function get_pagination($limit, $offset, $searchQuery = null)
     {
         $this->db->limit($limit, $offset);
 
-        if ($searchQuery) {
-            $this->db->like('username', $searchQuery);
-        }
+        $this->buildQueryTable($searchQuery);
 
-        $query = $this->db->get('user');
+        $query = $this->db->get($this->table);
         return $query->result();
     }
 
-    function count_all()
+    function buildQueryTable($searchQuery = null)
     {
-        return $this->db->count_all('user');
+        if ($searchQuery) {
+            $this->db->like('username', $searchQuery);
+        }
+    }
+
+    function count_all($searchQuery = null)
+    {
+
+        $this->buildQueryTable($searchQuery);
+
+        return $this->db->count_all_results($this->table);
     }
 }

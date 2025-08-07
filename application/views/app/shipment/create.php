@@ -19,7 +19,7 @@
                 <i class="bi bi-box-fill mr-2"></i> Shipment Form
             </h2>
 
-            <form id="shippingForm">
+            <form id="shippingForm" method="post" action="<?= site_url('app/shipment/create') ?>">
 
                 <!-- Sender Details -->
                 <div class="mb-4">
@@ -29,31 +29,38 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Sender Name</label>
-                            <input type="text" class="form-control" placeholder="Full Name">
+                            <input type="text" class="form-control" placeholder="Full Name" name="senderName">
+                            <?= form_error('senderName', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Sender Email</label>
-                            <input type="email" class="form-control" placeholder="email@example.com">
+                            <input type="email" class="form-control" placeholder="email@example.com" name="senderEmail">
+                            <?= form_error('senderEmail', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-12">
                             <label>Sender Address</label>
-                            <input type="text" class="form-control" placeholder="123 Example Street">
+                            <input type="text" class="form-control" placeholder="123 Example Street" name="senderAddress">
+                            <?= form_error('senderAddress', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Sender Country</label>
-                            <input type="text" class="form-control" placeholder="Indonesia">
+                            <input type="text" class="form-control" placeholder="Indonesia" name="senderCountry">
+                            <?= form_error('senderCountry', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Sender City</label>
-                            <input type="text" class="form-control" placeholder="Jakarta">
+                            <input type="text" class="form-control" placeholder="Jakarta" name="senderCity">
+                            <?= form_error('senderCity', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Sender Postal Code</label>
-                            <input type="text" class="form-control" placeholder="54321">
+                            <input type="text" class="form-control" placeholder="54321" name="senderPostalCode">
+                            <?= form_error('senderPostalCode', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Sender Phone Number</label>
-                            <input type="tel" class="form-control" placeholder="+62 812 3456 7890">
+                            <input type="tel" class="form-control" placeholder="+62 812 3456 7890" name="senderPhone">
+                            <?= form_error('senderPhone', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                     </div>
                 </div>
@@ -66,31 +73,38 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Recipient Name</label>
-                            <input type="text" class="form-control" placeholder="Full Name">
+                            <input type="text" class="form-control" placeholder="Full Name" name="receiverName">
+                            <?= form_error('receiverName', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Recipient Email</label>
-                            <input type="email" class="form-control" placeholder="email@example.com">
+                            <input type="email" class="form-control" placeholder="email@example.com" name="receiverEmail">
+                            <?= form_error('receiverEmail', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-12">
                             <label>Recipient Address</label>
-                            <input type="text" class="form-control" placeholder="456 Sample Road">
+                            <input type="text" class="form-control" placeholder="456 Sample Road" name="receiverAddress">
+                            <?= form_error('receiverAddress', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Recipient Country</label>
-                            <input type="text" class="form-control" placeholder="Malaysia">
+                            <input type="text" class="form-control" placeholder="Malaysia" name="receiverCountry">
+                            <?= form_error('receiverCountry', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Recipient City</label>
-                            <input type="text" class="form-control" placeholder="Kuala Lumpur">
+                            <input type="text" class="form-control" placeholder="Kuala Lumpur" name="receiverCity">
+                            <?= form_error('receiverCity', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Recipient Postal Code</label>
-                            <input type="text" class="form-control" placeholder="12345">
+                            <input type="text" class="form-control" placeholder="12345" name="receiverPostalCode">
+                            <?= form_error('receiverPostalCode', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Recipient Phone Number</label>
-                            <input type="tel" class="form-control" placeholder="+60 812 3456 7890">
+                            <input type="tel" class="form-control" placeholder="+60 812 3456 7890" name="receiverPhone">
+                            <?= form_error('receiverPhone', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                     </div>
                 </div>
@@ -103,33 +117,39 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label>Item Description</label>
-                            <textarea class="form-control" rows="3" placeholder="Example: Black Asus laptop with charger and bag."></textarea>
+                            <textarea class="form-control" rows="3" placeholder="Example: Black Asus laptop with charger and bag." name="itemDescription"></textarea>
+                            <?= form_error('itemDescription', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Item Category</label>
-                            <select class="form-control">
+                            <select class="form-control" name="itemCategory">
                                 <option value="">-- Select Category --</option>
                                 <option value="electronics">Electronics</option>
                                 <option value="clothing">Clothing</option>
                                 <option value="furniture">Furniture</option>
                                 <option value="books">Books</option>
                             </select>
+                            <?= form_error('itemCategory', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Weight (kg)</label>
-                            <input type="number" step="0.01" class="form-control" placeholder="1.5">
+                            <input type="number" step="0.01" class="form-control" placeholder="1.5" name="itemWeight">
+                            <?= form_error('itemWeight', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Length (cm)</label>
-                            <input type="number" class="form-control" placeholder="50">
+                            <input type="number" class="form-control" placeholder="50" name="itemLength">
+                            <?= form_error('itemLength', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Width (cm)</label>
-                            <input type="number" class="form-control" placeholder="30">
+                            <input type="number" class="form-control" placeholder="30" name="itemWidth">
+                            <?= form_error('itemWidth', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Height (cm)</label>
-                            <input type="number" class="form-control" placeholder="10">
+                            <input type="number" class="form-control" placeholder="10" name="itemHeight">
+                            <?= form_error('itemHeight', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                     </div>
                 </div>

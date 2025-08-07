@@ -57,7 +57,15 @@ class Shipment extends CI_Controller
             $data['view_script'] = 'app/shipment/index_script';
             $this->load->view('app', $data);
         } else {
-            echo "Form submitted successfully!";
+            // If validation passes, create the shipment
+            $this->load->model('Shipment_model');
+            if ($this->Shipment_model->create_shipment()) {
+                $this->session->set_flashdata('success', 'Shipment created successfully!');
+                redirect('app/shipment');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to create shipment. Please try again.');
+                redirect('app/shipment/create');
+            }
         }
     }
 }
