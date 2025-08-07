@@ -38,7 +38,7 @@
 		<div id="wrapper">
 			<!-- Sidebar -->
 			<ul
-				class="navbar-nav bg-primary sidebar sidebar-dark accordion"
+				class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
 				id="accordionSidebar"
 			>
 				<!-- Sidebar - Brand -->
@@ -67,15 +67,119 @@
 				<hr class="sidebar-divider" />
 
 				<!-- Heading -->
-				<div class="sidebar-heading">User</div>
+				<div class="sidebar-heading">Interface</div>
 
 				<!-- Nav Item - Pages Collapse Menu -->
+				<li class="nav-item">
+					<a
+						class="nav-link collapsed"
+						href="#"
+						data-toggle="collapse"
+						data-target="#collapseTwo"
+						aria-expanded="true"
+						aria-controls="collapseTwo"
+					>
+						<i class="fas fa-fw fa-cog"></i>
+						<span>Components</span>
+					</a>
+					<div
+						id="collapseTwo"
+						class="collapse"
+						aria-labelledby="headingTwo"
+						data-parent="#accordionSidebar"
+					>
+						<div class="bg-white py-2 collapse-inner rounded">
+							<h6 class="collapse-header">Custom Components:</h6>
+							<a class="collapse-item" href="buttons.html">Buttons</a>
+							<a class="collapse-item" href="cards.html">Cards</a>
+						</div>
+					</div>
+				</li>
+
+				<!-- Nav Item - Utilities Collapse Menu -->
+				<li class="nav-item">
+					<a
+						class="nav-link collapsed"
+						href="#"
+						data-toggle="collapse"
+						data-target="#collapseUtilities"
+						aria-expanded="true"
+						aria-controls="collapseUtilities"
+					>
+						<i class="fas fa-fw fa-wrench"></i>
+						<span>Utilities</span>
+					</a>
+					<div
+						id="collapseUtilities"
+						class="collapse"
+						aria-labelledby="headingUtilities"
+						data-parent="#accordionSidebar"
+					>
+						<div class="bg-white py-2 collapse-inner rounded">
+							<h6 class="collapse-header">Custom Utilities:</h6>
+							<a class="collapse-item" href="utilities-color.html">Colors</a>
+							<a class="collapse-item" href="utilities-border.html">Borders</a>
+							<a class="collapse-item" href="utilities-animation.html"
+								>Animations</a
+							>
+							<a class="collapse-item" href="utilities-other.html">Other</a>
+						</div>
+					</div>
+				</li>
+
+				<!-- Divider -->
+				<hr class="sidebar-divider" />
+
+				<!-- Heading -->
+				<div class="sidebar-heading">Addons</div>
+
+				<!-- Nav Item - Pages Collapse Menu -->
+				<li class="nav-item">
+					<a
+						class="nav-link collapsed"
+						href="#"
+						data-toggle="collapse"
+						data-target="#collapsePages"
+						aria-expanded="true"
+						aria-controls="collapsePages"
+					>
+						<i class="fas fa-fw fa-folder"></i>
+						<span>Pages</span>
+					</a>
+					<div
+						id="collapsePages"
+						class="collapse"
+						aria-labelledby="headingPages"
+						data-parent="#accordionSidebar"
+					>
+						<div class="bg-white py-2 collapse-inner rounded">
+							<h6 class="collapse-header">Login Screens:</h6>
+							<a class="collapse-item" href="login.html">Login</a>
+							<a class="collapse-item" href="register.html">Register</a>
+							<a class="collapse-item" href="forgot-password.html"
+								>Forgot Password</a
+							>
+							<div class="collapse-divider"></div>
+							<h6 class="collapse-header">Other Pages:</h6>
+							<a class="collapse-item" href="404.html">404 Page</a>
+							<a class="collapse-item" href="blank.html">Blank Page</a>
+						</div>
+					</div>
+				</li>
+
+				<!-- Nav Item - Charts -->
+				<li class="nav-item">
+					<a class="nav-link" href="charts.html">
+						<i class="fas fa-fw fa-chart-area"></i>
+						<span>Charts</span></a
+					>
+				</li>
 
 				<!-- Nav Item - Tables -->
 				<li class="nav-item active">
 					<a class="nav-link" href="tables.html">
-						<i class="fas fa-fw fa-users"></i>
-						<span>Table User</span></a
+						<i class="fas fa-fw fa-table"></i>
+						<span>Tables</span></a
 					>
 				</li>
 
@@ -107,8 +211,130 @@
 							</button>
 						</form>
 
+						<!-- Topbar Search -->
+						<form
+							class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+						>
+							<div class="input-group">
+								<input
+									type="text"
+									class="form-control bg-light border-0 small"
+									placeholder="Search for..."
+									aria-label="Search"
+									aria-describedby="basic-addon2"
+								/>
+								<div class="input-group-append">
+									<button class="btn btn-primary" type="button">
+										<i class="fas fa-search fa-sm"></i>
+									</button>
+								</div>
+							</div>
+						</form>
+
 						<!-- Topbar Navbar -->
 						<ul class="navbar-nav ml-auto">
+							<!-- Nav Item - Search Dropdown (Visible Only XS) -->
+							<li class="nav-item dropdown no-arrow d-sm-none">
+								<a
+									class="nav-link dropdown-toggle"
+									href="#"
+									id="searchDropdown"
+									role="button"
+									data-toggle="dropdown"
+									aria-haspopup="true"
+									aria-expanded="false"
+								>
+									<i class="fas fa-search fa-fw"></i>
+								</a>
+								<!-- Dropdown - Messages -->
+								<div
+									class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+									aria-labelledby="searchDropdown"
+								>
+									<form class="form-inline mr-auto w-100 navbar-search">
+										<div class="input-group">
+											<input
+												type="text"
+												class="form-control bg-light border-0 small"
+												placeholder="Search for..."
+												aria-label="Search"
+												aria-describedby="basic-addon2"
+											/>
+											<div class="input-group-append">
+												<button class="btn btn-primary" type="button">
+													<i class="fas fa-search fa-sm"></i>
+												</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</li>
+
+							<!-- Nav Item - Alerts -->
+							<li class="nav-item dropdown no-arrow mx-1">
+								<a
+									class="nav-link dropdown-toggle"
+									href="#"
+									id="alertsDropdown"
+									role="button"
+									data-toggle="dropdown"
+									aria-haspopup="true"
+									aria-expanded="false"
+								>
+									<i class="fas fa-bell fa-fw"></i>
+									<!-- Counter - Alerts -->
+									<span class="badge badge-danger badge-counter">3+</span>
+								</a>
+								<!-- Dropdown - Alerts -->
+								<div
+									class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+									aria-labelledby="alertsDropdown"
+								>
+									<h6 class="dropdown-header">Alerts Center</h6>
+									<a class="dropdown-item d-flex align-items-center" href="#">
+										<div class="mr-3">
+											<div class="icon-circle bg-primary">
+												<i class="fas fa-file-alt text-white"></i>
+											</div>
+										</div>
+										<div>
+											<div class="small text-gray-500">December 12, 2019</div>
+											<span class="font-weight-bold"
+												>A new monthly report is ready to download!</span
+											>
+										</div>
+									</a>
+									<a class="dropdown-item d-flex align-items-center" href="#">
+										<div class="mr-3">
+											<div class="icon-circle bg-success">
+												<i class="fas fa-donate text-white"></i>
+											</div>
+										</div>
+										<div>
+											<div class="small text-gray-500">December 7, 2019</div>
+											$290.29 has been deposited into your account!
+										</div>
+									</a>
+									<a class="dropdown-item d-flex align-items-center" href="#">
+										<div class="mr-3">
+											<div class="icon-circle bg-warning">
+												<i class="fas fa-exclamation-triangle text-white"></i>
+											</div>
+										</div>
+										<div>
+											<div class="small text-gray-500">December 2, 2019</div>
+											Spending Alert: We've noticed unusually high spending for
+											your account.
+										</div>
+									</a>
+									<a
+										class="dropdown-item text-center small text-gray-500"
+										href="#"
+										>Show All Alerts</a
+									>
+								</div>
+							</li>
+
 							<!-- Nav Item - Messages -->
 							<li class="nav-item dropdown no-arrow mx-1">
 								<a
@@ -268,7 +494,7 @@
 					<!-- Begin Page Content -->
 					<div class="container-fluid">
 						<!-- Page Heading -->
-						<h1 class="h3 mb-2 text-gray-800">Tables user</h1>
+						<h1 class="h3 mb-2 text-gray-800">Tables</h1>
 						<p class="mb-4">
 							DataTables is a third party plugin that is used to generate the
 							demo table below. For more information about DataTables, please
@@ -345,30 +571,6 @@
 												<td>22</td>
 												<td>2012/03/29</td>
 												<td>$433,060</td>
-											</tr>
-											<tr>
-												<td>Airi Satou</td>
-												<td>Accountant</td>
-												<td>Tokyo</td>
-												<td>33</td>
-												<td>2008/11/28</td>
-												<td>$162,700</td>
-											</tr>
-											<tr>
-												<td>Brielle Williamson</td>
-												<td>Integration Specialist</td>
-												<td>New York</td>
-												<td>61</td>
-												<td>2012/12/02</td>
-												<td>$372,000</td>
-											</tr>
-											<tr>
-												<td>Herrod Chandler</td>
-												<td>Sales Assistant</td>
-												<td>San Francisco</td>
-												<td>59</td>
-												<td>2012/08/06</td>
-												<td>$137,500</td>
 											</tr>
 										</tbody>
 									</table>
@@ -454,57 +656,5 @@
 
 		<!-- Page level custom scripts -->
 		<script src="js/demo/datatables-demo.js"></script>
-		<!-- Code injected by live-server -->
-		<script>
-			// <![CDATA[  <-- For SVG support
-			if ("WebSocket" in window) {
-				(function () {
-					function refreshCSS() {
-						var sheets = [].slice.call(document.getElementsByTagName("link"));
-						var head = document.getElementsByTagName("head")[0];
-						for (var i = 0; i < sheets.length; ++i) {
-							var elem = sheets[i];
-							var parent = elem.parentElement || head;
-							parent.removeChild(elem);
-							var rel = elem.rel;
-							if (
-								(elem.href && typeof rel != "string") ||
-								rel.length == 0 ||
-								rel.toLowerCase() == "stylesheet"
-							) {
-								var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
-								elem.href =
-									url +
-									(url.indexOf("?") >= 0 ? "&" : "?") +
-									"_cacheOverride=" +
-									new Date().valueOf();
-							}
-							parent.appendChild(elem);
-						}
-					}
-					var protocol =
-						window.location.protocol === "http:" ? "ws://" : "wss://";
-					var address =
-						protocol + window.location.host + window.location.pathname + "/ws";
-					var socket = new WebSocket(address);
-					socket.onmessage = function (msg) {
-						if (msg.data == "reload") window.location.reload();
-						else if (msg.data == "refreshcss") refreshCSS();
-					};
-					if (
-						sessionStorage &&
-						!sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")
-					) {
-						console.log("Live reload enabled.");
-						sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
-					}
-				})();
-			} else {
-				console.error(
-					"Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading."
-				);
-			}
-			// ]]>
-		</script>
 	</body>
 </html>
