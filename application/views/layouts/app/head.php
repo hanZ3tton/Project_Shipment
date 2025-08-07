@@ -20,7 +20,8 @@
 
     <!-- Custom styles for this template -->
     <link href="<?= base_url('assets/css/sb-admin-2.min.css') ?>" rel="stylesheet" />
-
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
     <!-- Custom styles for this page -->
     <link
         href="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css') ?>"

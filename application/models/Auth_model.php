@@ -62,4 +62,22 @@ class Auth_model extends CI_Model
         $this->db->where('id', $id);
         return $this->db->delete('user'); // Delete user by ID
     }
+
+    // Get User Pagination
+    public function get_user_pagination($limit, $offset, $searchQuery = null)
+    {
+        $this->db->limit($limit, $offset);
+
+        if ($searchQuery) {
+            $this->db->like('username', $searchQuery);
+        }
+
+        $query = $this->db->get('user');
+        return $query->result();
+    }
+
+    function count_all()
+    {
+        return $this->db->count_all('user');
+    }
 }
