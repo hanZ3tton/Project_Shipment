@@ -49,17 +49,15 @@
     <!-- Logout Modal-->
     <?php $this->load->view('layouts/app/modal/nav_user_modal.php') ?>
 
+    <!-- Global Script -->
+    <?php $this->load->view('layouts/global_script'); ?>
+    <!-- End of Global Script -->
+
     <!-- Custom Script -->
     <?php if (isset($view_script)) {
         $this->load->view($view_script);
     } ?>
     <!-- End of Custom Script -->
-
-
-    <!-- Global Script -->
-    <?php $this->load->view('layouts/global_script'); ?>
-    <!-- End of Global Script -->
-
 
 
 </body>
