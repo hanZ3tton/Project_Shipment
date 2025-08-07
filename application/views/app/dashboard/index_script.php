@@ -1,3 +1,5 @@
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
  <script>
      const orderChart = new Chart(document.getElementById('orderChart'), {
          type: 'line',

@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('dashboard/index')  ?> ">
         <div class="sidebar-brand-icon rotate-n-15">
@@ -31,6 +31,23 @@
             <i class="fas fa-fw fa-users"></i>
             <span>Shipment</span>
         </a>
+    </li>
+
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-truck"></i>
+            <span>Shipment</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Utilities:</h6>
+                <a class="collapse-item" href="">Add Shipment</a>
+                <a class="collapse-item" href="<?= base_url('app/shipment') ?>">All Inbound</a>
+            </div>
+        </div>
     </li>
 
     <!-- Divider -->

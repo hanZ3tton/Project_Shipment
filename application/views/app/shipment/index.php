@@ -1,156 +1,137 @@
-<div class="container-fluid vh-100 ">
-    <div class=" bg-white rounded-lg shadow-lg p-6 vh-100 row flex-column justify-content-between  align-items-reverse">
+<div class="container-fluid vh-100">
+    <div class="bg-white rounded shadow p-4 h-100 d-flex flex-column justify-content-between">
 
-        <div class="">
-            <div class="flex items-center justify-between mb-4">
-                <h2 class="text-2xl font-bold flex items-center gap-2">
-                    <i class="bi bi-table"></i> Shipment Table
+        <!-- Header and Search -->
+        <div>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="h4 font-weight-bold d-flex align-items-center">
+                    <i class="bi bi-table mr-2"></i> Shipment Table
                 </h2>
-                <div class="relative">
-                    <input type="text" id="searchInput" class="border px-3 py-1 rounded text-sm" placeholder="Search...">
-                    <i class="bi bi-search absolute right-2 top-1 text-gray-400"></i>
+                <div class="position-relative">
+                    <input type="text" id="searchInput" class="form-control form-control-sm pr-4" placeholder="Search...">
+                    <i class="bi bi-search position-absolute" style="top: 8px; right: 10px; color: #ccc;"></i>
                 </div>
             </div>
 
-            <div class="overflow-x-auto">
-                <table class="table-auto w-full border border-gray-300 text-sm">
-                    <thead class="bg-gray-200 text-gray-600">
+            <!-- Table -->
+            <div class="table-responsive">
+                <table class="table table-bordered table-sm text-center">
+                    <thead class="thead-light">
                         <tr>
-                            <th class="p-2 border cursor-pointer">#</th>
-                            <th class="p-2 border cursor-pointer">Sender</th>
-                            <th class="p-2 border cursor-pointer">Sender Address</th>
-                            <th class="p-2 border cursor-pointer">Sender Country</th>
-                            <th class="p-2 border cursor-pointer">Receiver</th>
-                            <th class="p-2 border cursor-pointer">Receiver Address</th>
-                            <th class="p-2 border cursor-pointer">Receiver Country</th>
-                            <th class="p-2 border cursor-pointer">Receipt Code</th>
-                            <th class="p-2 border cursor-pointer">Status</th>
-                            <th class="p-2 border cursor-pointer">Action</th>
+                            <th>#</th>
+                            <th>Sender</th>
+                            <th>Sender Address</th>
+                            <th>Sender Country</th>
+                            <th>Receiver</th>
+                            <th>Receiver Address</th>
+                            <th>Receiver Country</th>
+                            <th>Receipt Code</th>
+                            <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="shipmentTable">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-2 border text-center">1</td>
-                            <td class="p-2 border">John Smith</td>
-                            <td class="p-2 border">123 Elm St, New York</td>
-                            <td class="p-2 border text-center">
-                                <div class="flex flex-col items-center">
-                                    <img src="https://flagcdn.com/us.svg" alt="USA" class="flag" />
-                                    <span class="text-xs mt-1">USA</span>
-                                </div>
+                        <tr>
+                            <td>1</td>
+                            <td>John Smith</td>
+                            <td>123 Elm St, New York</td>
+                            <td>
+                                <img src="https://flagcdn.com/us.svg" alt="USA" width="20"><br><small>USA</small>
                             </td>
-                            <td class="p-2 border">Maria Rossi</td>
-                            <td class="p-2 border">Via Roma 22, Rome</td>
-                            <td class="p-2 border text-center">
-                                <div class="flex flex-col items-center">
-                                    <img src="https://flagcdn.com/it.svg" alt="Italy" class="flag" />
-                                    <span class="text-xs mt-1">Italy</span>
-                                </div>
+                            <td>Maria Rossi</td>
+                            <td>Via Roma 22, Rome</td>
+                            <td>
+                                <img src="https://flagcdn.com/it.svg" alt="Italy" width="20"><br><small>Italy</small>
                             </td>
-                            <td class="p-2 border text-center">#RX239840</td>
-                            <td class="p-2 border text-center text-green-600 font-semibold">Complete</td>
-                            <td class="p-2 border text-center space-x-2">
-                                <button data-id="1" class="btn-detail bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-xs">
+                            <td>#RX239840</td>
+                            <td class="text-success font-weight-bold">Complete</td>
+                            <td>
+                                <button data-id="1" class="btn btn-primary btn-sm mb-1">
                                     <i class="bi bi-eye"></i> Detail
                                 </button>
-                                <button data-id="1" class="btn-tracking bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-xs">
+                                <button data-id="1" class="btn btn-warning btn-sm text-white">
                                     <i class="bi bi-truck"></i> Tracking
                                 </button>
                             </td>
                         </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-2 border text-center">1</td>
-                            <td class="p-2 border">John Smith</td>
-                            <td class="p-2 border">123 Elm St, New York</td>
-                            <td class="p-2 border text-center">
-                                <div class="flex flex-col items-center">
-                                    <img src="https://flagcdn.com/us.svg" alt="USA" class="flag" />
-                                    <span class="text-xs mt-1">USA</span>
-                                </div>
-                            </td>
-                            <td class="p-2 border">Maria Rossi</td>
-                            <td class="p-2 border">Via Roma 22, Rome</td>
-                            <td class="p-2 border text-center">
-                                <div class="flex flex-col items-center">
-                                    <img src="https://flagcdn.com/it.svg" alt="Italy" class="flag" />
-                                    <span class="text-xs mt-1">Italy</span>
-                                </div>
-                            </td>
-                            <td class="p-2 border text-center">#RX239840</td>
-                            <td class="p-2 border text-center text-green-600 font-semibold">Complete</td>
-                            <td class="p-2 border text-center space-x-2">
-                                <button data-id="1" class="btn-detail bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-xs">
-                                    <i class="bi bi-eye"></i> Detail
-                                </button>
-                                <button data-id="1" class="btn-tracking bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-xs">
-                                    <i class="bi bi-truck"></i> Tracking
-                                </button>
-                            </td>
-                        </tr>
-                        <!-- More rows -->
+                        <!-- Duplicate row removed for brevity -->
                     </tbody>
                 </table>
             </div>
         </div>
 
         <!-- Pagination -->
-        <div class="flex justify-end items-center mt-4 space-x-2">
-            <button class="px-3 py-1 border rounded hover:bg-gray-200">&laquo;</button>
-            <button class="px-3 py-1 border rounded bg-blue-500 text-white">1</button>
-            <button class="px-3 py-1 border rounded hover:bg-gray-200">2</button>
-            <button class="px-3 py-1 border rounded hover:bg-gray-200">3</button>
-            <button class="px-3 py-1 border rounded hover:bg-gray-200">&raquo;</button>
+        <div class="d-flex justify-content-end mt-4">
+            <nav>
+                <ul class="pagination pagination-sm mb-0">
+                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
 
-    <!-- Modal Detail -->
-    <div id="detailModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative">
-            <button onclick="closeModal('detailModal')" class="absolute top-2 right-2 text-gray-500 hover:text-red-500">
-                <i class="bi bi-x-lg"></i>
-            </button>
-            <h3 class="text-xl font-semibold mb-4"><i class="bi bi-card-text"></i> Detail Pengiriman</h3>
-            <div class="space-y-2 text-sm">
-                <div><strong>Nama Penerima:</strong> Maria Rossi</div>
-                <div><strong>Negara:</strong> Italy</div>
-                <div><strong>Item Name:</strong> Shoes</div>
-                <div><strong>Sender Email:</strong> john@example.com</div>
-                <div><strong>Sender Postal Code:</strong> 10001</div>
-                <div><strong>Receiver Email:</strong> maria@example.it</div>
-                <div><strong>Receiver Postal Code:</strong> 00185</div>
-                <div><strong>Receiver Phone:</strong> +39 334 5678</div>
-                <div><strong>Price:</strong> $39.99</div>
-                <div><strong>Weight:</strong> 2.5 kg</div>
-                <div><strong>Length x Width x Height:</strong> 40 x 30 x 10 cm</div>
-                <div><strong>Created At:</strong> 2025-08-01</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Tracking -->
-    <div id="trackingModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-xl relative">
-            <button onclick="closeModal('trackingModal')" class="absolute top-2 right-2 text-gray-500 hover:text-red-500">
-                <i class="bi bi-x-lg"></i>
-            </button>
-            <h3 class="text-xl font-semibold mb-6"><i class="bi bi-truck"></i> Tracking</h3>
-
-            <!-- Horizontal Route Line -->
-            <div class="flex items-center justify-between relative mb-10">
-                <span class="text-sm">New York</span>
-                <div class="z-10 bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center text-white text-xl truck-icon">
-                    <i class="bi bi-truck"></i>
+    <!-- Detail Modal -->
+    <div id="detailModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-card-text"></i> Detail Pengiriman</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span>&times;</span>
+                    </button>
                 </div>
-                <span class="text-sm">Rome</span>
+                <div class="modal-body small">
+                    <p><strong>Nama Penerima:</strong> Maria Rossi</p>
+                    <p><strong>Negara:</strong> Italy</p>
+                    <p><strong>Item Name:</strong> Shoes</p>
+                    <p><strong>Sender Email:</strong> john@example.com</p>
+                    <p><strong>Sender Postal Code:</strong> 10001</p>
+                    <p><strong>Receiver Email:</strong> maria@example.it</p>
+                    <p><strong>Receiver Postal Code:</strong> 00185</p>
+                    <p><strong>Receiver Phone:</strong> +39 334 5678</p>
+                    <p><strong>Price:</strong> $39.99</p>
+                    <p><strong>Weight:</strong> 2.5 kg</p>
+                    <p><strong>Length x Width x Height:</strong> 40 x 30 x 10 cm</p>
+                    <p><strong>Created At:</strong> 2025-08-01</p>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Vertical Status Timeline -->
-            <div class="ml-4 border-l-2 border-gray-300 pl-4 space-y-4">
-                <div class="text-sm">2025-08-01: Shipment created</div>
-                <div class="text-sm">2025-08-02: Picked up by courier</div>
-                <div class="text-sm">2025-08-03: In transit</div>
-                <div class="text-sm">2025-08-04: Arrived at destination</div>
-                <div class="text-sm">2025-08-05: Delivered</div>
+    <!-- Tracking Modal -->
+    <div id="trackingModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content p-4">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-truck"></i> Tracking</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Horizontal Route -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <span class="small">New York</span>
+                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <span class="small">Rome</span>
+                    </div>
+
+                    <!-- Vertical Timeline -->
+                    <div class="border-left pl-3 ml-3">
+                        <p class="small mb-2">2025-08-01: Shipment created</p>
+                        <p class="small mb-2">2025-08-02: Picked up by courier</p>
+                        <p class="small mb-2">2025-08-03: In transit</p>
+                        <p class="small mb-2">2025-08-04: Arrived at destination</p>
+                        <p class="small mb-2">2025-08-05: Delivered</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
