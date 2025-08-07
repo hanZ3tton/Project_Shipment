@@ -173,7 +173,8 @@ CREATE TABLE `user` (
   `postal_code` int(11) NOT NULL,
   `email` varchar(500) NOT NULL,
   `password` varchar(500) NOT NULL,
-  `created_at` date NOT NULL
+  `created_at` date NOT NULL,
+  `updated_at` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
