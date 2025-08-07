@@ -9,6 +9,9 @@ class Shipment extends CI_Controller
         // $this->load->model('Shipment_model'); // Assuming you have a Shipment_model for shipment operations
         $this->load->library('form_validation');
         $this->load->database();
+        if ($this->session->userdata('username') == null) {
+            redirect('auth');
+        }
     }
 
     public function index()
@@ -40,10 +43,10 @@ class Shipment extends CI_Controller
         $this->form_validation->set_rules('receiverPhone', 'Receiver Phone', 'required');
         $this->form_validation->set_rules('itemDescription', 'Item Description', 'required');
         $this->form_validation->set_rules('itemWeight', 'Item Weight', 'required|numeric');
-        $this->form_validation->set_rules('itemLenght', 'Item Lenght', 'required');
+        $this->form_validation->set_rules('itemLength', 'Item Length', 'required');
         $this->form_validation->set_rules('itemWidth', 'Item Width', 'required');
         $this->form_validation->set_rules('itemHeight', 'Item Height', 'required');
-        $this->form_validation->set_rules('itemCategory', 'Item Category', 'required|numeric');
+        $this->form_validation->set_rules('itemCategory', 'Item Category', 'required');
 
 
         if ($this->form_validation->run() == FALSE) {
