@@ -66,6 +66,10 @@ class User extends CI_Controller
     }
     public function delete($id)
     {
+        if ($id == $this->session->userdata('user_id')) {
+            $this->session->set_flashdata('error', 'You cannot delete your own account.');
+            redirect('app/user');
+        }
         $this->Auth_model->deleteUser($id);
         redirect('app/user');
     }
