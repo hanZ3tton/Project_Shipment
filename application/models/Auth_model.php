@@ -25,6 +25,8 @@ class Auth_model extends CI_Model
             'city' => $this->input->post('city'),
             'postal_code' => $this->input->post('postalCode'),
             'address' => $this->input->post('address'),
+            'created_at' => date('Y-m-d h:i:s'), // Set the current timestamp
+            'update_at' => date('Y-m-d h:i:s'), // Set the current timestamp
             'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT), // Hash the password
         ); {
 
@@ -45,6 +47,7 @@ class Auth_model extends CI_Model
             'city' => $this->input->post('city'),
             'postal_code' => $this->input->post('postalCode'),
             'address' => $this->input->post('address'),
+            'updated_at' => date('Y-m-d H:i:s'), // Set the current timestamp
         );
         $this->db->where('id', $id);
         return $this->db->update('user', $data);

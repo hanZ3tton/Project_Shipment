@@ -28,6 +28,8 @@
                             <th>City</th>
                             <th>Address</th>
                             <th>Postal Code</th>
+                            <th>Create At</th>
+                            <th>Update At</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -39,6 +41,8 @@
                             <th>City</th>
                             <th>Address</th>
                             <th>Postal Code</th>
+                            <th>Create At</th>
+                            <th>Update At</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>
@@ -51,6 +55,8 @@
                                 <td><?= $user->city ?> </td>
                                 <td><?= $user->address ?> </td>
                                 <td><?= $user->postal_code ?> </td>
+                                <td><?= $user->created_at ?> </td>
+                                <td><?= $user->updated_at ?> </td>
                                 <td>
                                     <a href="<?= base_url('app/user/edit/' . $user->id) ?>" class="btn btn-success">Edit</a>
                                     <a href="<?= base_url('app/user/delete/' . $user->id) ?>" class="btn btn-danger">Delete</a>
