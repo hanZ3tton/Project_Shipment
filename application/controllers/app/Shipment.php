@@ -41,11 +41,11 @@ class Shipment extends CI_Controller
 
         if ($this->form_validation->run() == FALSE) {
             // Load the form view with validation
-            $this->load->view('templates/admin_header');
-            $this->load->view('templates/admin_sidebar');
-            $this->load->view('templates/admin_topbar');
-            $this->load->view('shipment/test-form-shipment');
-            $this->load->view('templates/admin_footer');
+            $data['title'] = 'Shipment List';
+            $data['view'] = 'app/shipment/create';
+            $data['view_style'] = 'app/shipment/index_style';
+            $data['view_script'] = 'app/shipment/index_script';
+            $this->load->view('app', $data);
         } else {
             echo "Form submitted successfully!";
         }
