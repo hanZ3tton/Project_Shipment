@@ -34,6 +34,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="<?= base_url('app/shipment/create') ?>">Add Shipment</a>
                 <a class="collapse-item" href="<?= base_url('app/shipment') ?>">All Inbound</a>
+                <a class="collapse-item" href="<?= base_url('app/shipment/Completed') ?>">Completed</a>
+                <a class="collapse-item" href="<?= base_url('app/shipment/outbound') ?>">Outbound</a>
             </div>
         </div>
     </li>
