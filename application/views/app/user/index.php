@@ -1,84 +1,80 @@
-    <div class="container bg-white rounded shadow p-4 mt-4">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2 class="h4 mb-0"><i class="bi bi-table"></i> User Table</h2>
-            <a href="<?= base_url("app/user/create") ?>" class="btn btn-primary"><i class="bi bi-plus"></i> Add New User</a>
+<div class="container-fluid ">
+    <div class="bg-white rounded shadow p-4 h-100 d-flex flex-column justify-content-between">
+
+        <!-- Header and Search -->
+        <div>
+            <form action="<?php echo base_url('app/sample/index'); ?>" method="GET">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="h4 font-weight-bold d-flex align-items-center">
+                        <i class="bi bi-table mr-2"></i> User Table
+                    </h2>
+                    <div class="input-group" style="width: 250px;">
+                        <input type="text" id="searchInput" name="search" class="form-control form-control-sm" placeholder="Search by username..." value="<?php echo html_escape($this->input->get('search')); ?>">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary btn-sm" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Table -->
+            <div class="table-responsive">
+                <table class="table table-bordered table-sm text-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Full Name</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Postal Code</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTable">
+                        <?php $i = 1;
+                        foreach ($user as $key => $value): ?>
+                            <tr>
+                                <td><?php echo $i++; ?></td>
+                                <td><?php echo $value->username; ?></td>
+                                <td><?= $value->full_name ?></td>
+                                <td><?= $value->phone_number; ?></td>
+                                <td><?= $value->email ?></td>
+                                <td><?= $value->address ?></td>
+                                <td><?= $value->city ?></td>
+                                <td><?= $value->postal_code ?></td>
+                                <td><?= $value->created_at ?></td>
+                                <td><?= $value->updated_at ?></td>
+                                <td>
+                                    <a href="<?= base_url('app/user/edit/' . $value->id) ?>" class="btn btn-primary btn-sm">
+                                        <i class="bi bi-pencil"></i> Edit
+                                    </a>
+                                    <a href="<?= base_url('app/user/delete/' . $value->id) ?>" class="btn btn-warning btn-sm text-white">
+                                        <i class="bi bi-trash"></i> Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                        <?php if (empty($user)): ?>
+                            <tr>
+                                <td colspan="3">No data available</td>
+                            </tr>
+                        <?php endif ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover table-sm w-100" id="userTable" style="min-width:1100px;">
-                <thead class="thead-light">
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="text-center">1</td>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
-                        <td class="text-center">
-                            <div class="btn-group btn-group-sm">
-                                <a href="#" class="btn btn-success" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                                <a href="#" class="btn btn-danger" title="Delete" onclick="return confirm('Delete this user?')"><i class="bi bi-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">2</td>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
-                        <td>2011/07/25</td>
-                        <td>$170,750</td>
-                        <td class="text-center">
-                            <div class="btn-group btn-group-sm">
-                                <a href="#" class="btn btn-success" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                                <a href="#" class="btn btn-danger" title="Delete" onclick="return confirm('Delete this user?')"><i class="bi bi-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">3</td>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td>66</td>
-                        <td>2009/01/12</td>
-                        <td>$86,000</td>
-                        <td class="text-center">
-                            <div class="btn-group btn-group-sm">
-                                <a href="#" class="btn btn-success" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                                <a href="#" class="btn btn-danger" title="Delete" onclick="return confirm('Delete this user?')"><i class="bi bi-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">4</td>
-                        <td>Cedric Kelly</td>
-                        <td>Senior Javascript Developer</td>
-                        <td>Edinburgh</td>
-                        <td>22</td>
-                        <td>2012/03/29</td>
-                        <td>$433,060</td>
-                        <td class="text-center">
-                            <div class="btn-group btn-group-sm">
-                                <a href="#" class="btn btn-success" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                                <a href="#" class="btn btn-danger" title="Delete" onclick="return confirm('Delete this user?')"><i class="bi bi-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+
+
+        <!-- Pagination -->
+        <div class="d-flex justify-content-end mt-4">
+            <?php echo $pagination_links; ?>
         </div>
     </div>
+</div>

@@ -31,7 +31,7 @@ class Shipment_model extends CI_Model
             'length' => $this->input->post('itemLength'),
             'width' => $this->input->post('itemWidth'),
             'height' => $this->input->post('itemHeight'),
-            'item_category' => $this->input->post('itemCategory'),
+            'category_id' => $this->input->post('itemCategory'),
         );
         // Insert shipment data into the database
         return $this->db->insert('shipment', $data);

@@ -10,16 +10,30 @@ class User extends CI_Controller
         $this->load->library('session');
         $this->load->model('Auth_model'); // Assuming you have a User_model for user operations
         $this->load->library('form_validation');
+        $this->load->library('pagination');
         $this->load->database();
+        if ($this->session->userdata('username') == null) {
+            redirect('auth');
+        }
     }
 
     public function index()
     {
-        $data['users'] = $this->Auth_model->getAllUsers();
+        $page = $this->input->get('page');
+        $search = $this->input->get('search');
+
+        $config['base_url'] = base_url('app/user/index');
+        $config['total_rows'] = $this->Auth_model->count_all($search);
+        $config['per_page'] = 5;
+
+        $this->pagination->initialize($config);
+
+        $data['user'] = $this->Auth_model->get_pagination($config['per_page'], $page, $search);
+
+        $data['pagination_links'] = $this->pagination->create_links();
         $data['title'] = 'User List';
         $data['view'] = 'app/user/index';
-        $data['view_style'] = 'app/user/index_style';
-        $data['view_script'] = 'app/user/index_script';
+
         $this->load->view('app', $data);
     }
 
