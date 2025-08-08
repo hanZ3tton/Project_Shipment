@@ -25,6 +25,7 @@
                     <thead class="thead-light">
                         <tr>
                             <th>#</th>
+                            <th>Name</th>
                             <th>Status</th>
                             <th>Date</th>
                             <th>Sender Name</th>
@@ -36,9 +37,11 @@
                         </tr>
                     </thead>
                     <tbody id="userTable">
-                        <?php foreach ($user as $key => $value): ?>
+                        <?php $i = 1;
+                        foreach ($user as $key => $value): ?>
                             <tr>
-                                <td><?php echo $value->id; ?></td>
+                                <td><?php echo $i++ ?></td>
+                                <td><?php echo $value->item_name; ?></td>
                                 <td><?php echo $value->status_id; ?></td>
                                 <td><?php echo $value->created_at; ?></td>
                                 <td><?php echo $value->sender_name; ?></td>

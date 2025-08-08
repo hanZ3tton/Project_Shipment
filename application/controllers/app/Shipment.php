@@ -49,6 +49,7 @@ class Shipment extends CI_Controller
         $this->form_validation->set_rules('receiverCity', 'Receiver City', 'required');
         $this->form_validation->set_rules('receiverPostalCode', 'Receiver Postal Code', 'required');
         $this->form_validation->set_rules('receiverPhone', 'Receiver Phone', 'required');
+        $this->form_validation->set_rules('itemName', 'Item Name', 'required');
         $this->form_validation->set_rules('itemDescription', 'Item Description', 'required');
         $this->form_validation->set_rules('itemWeight', 'Item Weight', 'required|numeric');
         $this->form_validation->set_rules('itemLength', 'Item Length', 'required');
