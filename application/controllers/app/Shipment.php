@@ -123,4 +123,13 @@ class Shipment extends CI_Controller
             }
         }
     }
+    public function delete($id)
+    {
+        if ($this->shipment_model->delete_shipment($id)) {
+            $this->session->set_flashdata('success', 'Shipment deleted successfully!');
+        } else {
+            $this->session->set_flashdata('error', 'Failed to delete shipment. Please try again.');
+        }
+        redirect('app/shipment');
+    }
 }

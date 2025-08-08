@@ -72,15 +72,21 @@ class Shipment_model extends CI_Model
             'receiver_phone_number' => $this->input->post('receiverPhone'),
             'item_description' => $this->input->post('itemDescription'),
             'item_name' => $this->input->post('itemName'),
-            'item_weight' => $this->input->post('itemWeight'),
-            'item_length' => $this->input->post('itemLength'),
-            'item_width' => $this->input->post('itemWidth'),
-            'item_height' => $this->input->post('itemHeight'),
-            'item_category' => $this->input->post('itemCategory'),
+            'weight' => $this->input->post('itemWeight'),
+            'length' => $this->input->post('itemLength'),
+            'width' => $this->input->post('itemWidth'),
+            'height' => $this->input->post('itemHeight'),
+            'category_id' => $this->input->post('itemCategory'),
         );
         // Update shipment data in the database
         $this->db->where('id', $id);
         return $this->db->update('shipment', $data);
+    }
+    public function delete_shipment($id)
+    {
+        // Delete a shipment by ID
+        $this->db->where('id', $id);
+        return $this->db->delete('shipment');
     }
     //pagination
     public function get_pagination($limit, $offset, $searchQuery = null)

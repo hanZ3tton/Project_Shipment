@@ -53,7 +53,7 @@
                                     <a href="<?= base_url('app/shipment/edit/' . $value->id) ?>" class="btn btn-primary btn-sm">
                                         <i class="bi bi-pencil"></i> Edit
                                     </a>
-                                    <a href="" class="btn btn-warning btn-sm text-white">
+                                    <a href="<?= base_url('app/shipment/delete/' . $value->id) ?>" class="btn btn-warning btn-sm text-white">
                                         <i class="bi bi-trash"></i> Delete
                                     </a>
                                 </td>
