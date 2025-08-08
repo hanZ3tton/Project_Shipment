@@ -94,7 +94,7 @@ class Shipment_model extends CI_Model
     function buildQueryTable($searchQuery = null)
     {
         if ($searchQuery) {
-            $this->db->like('username', $searchQuery);
+            $this->db->like('sender_name', $searchQuery);
         }
     }
 

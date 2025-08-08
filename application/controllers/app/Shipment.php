@@ -76,4 +76,50 @@ class Shipment extends CI_Controller
             }
         }
     }
+    public function edit($id)
+    {
+        $data['title'] = 'Edit Shipment';
+        $data['shipment'] = $this->shipment_model->get_shipment_by_id($id);
+
+        // Set validation rules
+        $this->form_validation->set_rules('senderName', 'Sender Name', 'required');
+        $this->form_validation->set_rules('senderEmail', 'Sender Email', 'required|valid_email');
+        $this->form_validation->set_rules('senderAddress', 'Sender Address', 'required');
+        $this->form_validation->set_rules('senderCountry', 'Sender Country', 'required');
+        $this->form_validation->set_rules('senderCity', 'Sender City', 'required');
+        $this->form_validation->set_rules('senderPostalCode', 'Sender Postal Code', 'required');
+        $this->form_validation->set_rules('senderPhone', 'Sender Phone', 'required');
+        $this->form_validation->set_rules('receiverName', 'Receiver Name', 'required');
+        $this->form_validation->set_rules('receiverEmail', 'Receiver Email', 'required|valid_email');
+        $this->form_validation->set_rules('receiverAddress', 'Receiver Address', 'required');
+        $this->form_validation->set_rules('receiverCountry', 'Receiver Country', 'required');
+        $this->form_validation->set_rules('receiverCity', 'Receiver City', 'required');
+        $this->form_validation->set_rules('receiverPostalCode', 'Receiver Postal Code', 'required');
+        $this->form_validation->set_rules('receiverPhone', 'Receiver Phone', 'required');
+        $this->form_validation->set_rules('itemName', 'Item Name', 'required');
+        $this->form_validation->set_rules('itemDescription', 'Item Description', 'required');
+        $this->form_validation->set_rules('itemWeight', 'Item Weight', 'required|numeric');
+        $this->form_validation->set_rules('itemLength', 'Item Length', 'required');
+        $this->form_validation->set_rules('itemWidth', 'Item Width', 'required');
+        $this->form_validation->set_rules('itemHeight', 'Item Height', 'required');
+        $this->form_validation->set_rules('itemCategory', 'Item Category', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            // Load the form view with validation
+            $data['title'] = 'Shipment List';
+            $data['view'] = 'app/shipment/edit';
+            $data['view_style'] = 'app/shipment/index_style';
+            $data['view_script'] = 'app/shipment/index_script';
+            $this->load->view('app', $data);
+        } else {
+            // If validation passes, update the shipment
+            if ($this->shipment_model->update_shipment($id)) {
+                $this->session->set_flashdata('success', 'Shipment updated successfully!');
+                redirect('app/shipment');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to update shipment. Please try again.');
+                redirect('app/shipment/edit/' . $id);
+            }
+        }
+    }
 }

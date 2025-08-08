@@ -47,7 +47,7 @@
                                 <td><?php echo $value->item_description; ?></td>
                                 <td><?php echo $value->updated_at; ?></td>
                                 <td>
-                                    <a href="" class="btn btn-primary btn-sm">
+                                    <a href="<?= base_url('app/shipment/edit/' . $value->id) ?>" class="btn btn-primary btn-sm">
                                         <i class="bi bi-pencil"></i> Edit
                                     </a>
                                     <a href="" class="btn btn-warning btn-sm text-white">

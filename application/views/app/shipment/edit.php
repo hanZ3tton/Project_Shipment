@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Shipping Form</title>
-
     <!-- Bootstrap 4 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Bootstrap Icons -->
@@ -16,7 +14,7 @@
     <div class="card shadow-lg">
         <div class="card-body">
             <h2 class="text-primary mb-4 d-flex align-items-center">
-                <i class="bi bi-box-fill mr-2"></i> Shipment Form
+                <i class="bi bi-box-fill mr-2"></i> Shipment Form Edit
             </h2>
 
             <form id="shippingForm" method="post" action="<?= site_url('app/shipment/create') ?>">
