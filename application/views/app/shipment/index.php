@@ -3,7 +3,7 @@
 
         <!-- Header and Search -->
         <div>
-            <form action="<?php echo base_url('app/sample/index'); ?>" method="GET">
+            <form action="<?php echo base_url('app/shipment/index'); ?>" method="GET">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2 class="h4 font-weight-bold d-flex align-items-center">
                         <i class="bi bi-table mr-2"></i> User Table
@@ -39,13 +39,13 @@
                         <?php foreach ($user as $key => $value): ?>
                             <tr>
                                 <td><?php echo $value->id; ?></td>
-                                <td><?php echo $value->username; ?></td>
-                                <td><?php echo $value->username; ?></td>
-                                <td><?php echo $value->username; ?></td>
-                                <td><?php echo $value->username; ?></td>
-                                <td><?php echo $value->username; ?></td>
-                                <td><?php echo $value->username; ?></td>
-                                <td><?php echo $value->username; ?></td>
+                                <td><?php echo $value->status_id; ?></td>
+                                <td><?php echo $value->created_at; ?></td>
+                                <td><?php echo $value->sender_name; ?></td>
+                                <td><?php echo $value->sender_phone_number; ?></td>
+                                <td><?php echo $value->category_id; ?></td>
+                                <td><?php echo $value->item_description; ?></td>
+                                <td><?php echo $value->updated_at; ?></td>
                                 <td>
                                     <a href="" class="btn btn-primary btn-sm">
                                         <i class="bi bi-pencil"></i> Edit

@@ -124,10 +124,10 @@
                             <label>Item Category</label>
                             <select class="form-control" name="itemCategory">
                                 <option value="">-- Select Category --</option>
-                                <option value="1">Electronics</option>
-                                <option value="2">Clothing</option>
-                                <option value="3">Furniture</option>
-                                <option value="4">Books</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Clothing">Clothing</option>
+                                <option value="Furniture">Furniture</option>
+                                <option value="Books">Books</option>
                             </select>
                             <?= form_error('itemCategory', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>

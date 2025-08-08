@@ -3,7 +3,7 @@
 
         <!-- Header and Search -->
         <div>
-            <form action="<?php echo base_url('app/sample/index'); ?>" method="GET">
+            <form action="<?php echo base_url('app/user/index'); ?>" method="GET">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2 class="h4 font-weight-bold d-flex align-items-center">
                         <i class="bi bi-table mr-2"></i> User Table

@@ -12,6 +12,7 @@ class User extends CI_Controller
         $this->load->library('form_validation');
         $this->load->library('pagination');
         $this->load->database();
+
         if ($this->session->userdata('username') == null) {
             redirect('auth');
         }

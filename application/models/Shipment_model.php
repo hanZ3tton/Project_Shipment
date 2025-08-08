@@ -2,6 +2,7 @@
 
 class Shipment_model extends CI_Model
 {
+    protected $table = 'shipment'; // Define the table name
     public function __construct()
     {
         parent::__construct();
@@ -78,5 +79,30 @@ class Shipment_model extends CI_Model
         // Update shipment data in the database
         $this->db->where('id', $id);
         return $this->db->update('shipment', $data);
+    }
+    //pagination
+    public function get_pagination($limit, $offset, $searchQuery = null)
+    {
+        $this->db->limit($limit, $offset);
+
+        $this->buildQueryTable($searchQuery);
+
+        $query = $this->db->get($this->table);
+        return $query->result();
+    }
+
+    function buildQueryTable($searchQuery = null)
+    {
+        if ($searchQuery) {
+            $this->db->like('username', $searchQuery);
+        }
+    }
+
+    function count_all($searchQuery = null)
+    {
+
+        $this->buildQueryTable($searchQuery);
+
+        return $this->db->count_all_results($this->table);
     }
 }
