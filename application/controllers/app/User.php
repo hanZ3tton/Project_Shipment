@@ -52,6 +52,8 @@ class User extends CI_Controller
 
         if ($this->form_validation->run() == FALSE) {
             $data['view'] = 'app/user/create';
+            $data['view_style'] = 'app/user/index_style';
+            $data['view_script'] = 'app/user/index_script';
             $this->load->view('app', $data);
         } else {
             $this->Auth_model->create_user();

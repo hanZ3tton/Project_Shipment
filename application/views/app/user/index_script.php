@@ -1,3 +1,10 @@
+   <script>
+       document.getElementById("userForm").addEventListener("submit", function(e) {
+           // e.preventDefault(); // Uncomment if you want to prevent real submit
+           // alert("User data has been submitted!");
+       });
+   </script>
+
    <!-- Bootstrap JS -->
    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
