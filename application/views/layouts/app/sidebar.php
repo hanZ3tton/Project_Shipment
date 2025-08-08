@@ -22,6 +22,8 @@
     <!-- Divider -->
     <hr class="sidebar-divider" />
 
+    <div class="sidebar-heading">Shipment</div>
+
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item <?= ($this->uri->segment(1) == 'app/shipment') ? 'active' : '' ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
