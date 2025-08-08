@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2025 at 05:23 AM
+-- Generation Time: Aug 08, 2025 at 06:26 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -172,7 +172,8 @@ CREATE TABLE `shipment` (
   `user_id` int(11) NOT NULL,
   `service_id` int(11) NOT NULL,
   `category_id` bigint(20) NOT NULL,
-  `transaction` varchar(128) NOT NULL
+  `transaction` varchar(128) NOT NULL,
+  `shipment_status_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -184,20 +185,6 @@ CREATE TABLE `shipment` (
 CREATE TABLE `shipment_service` (
   `id` int(11) NOT NULL,
   `service` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `shipment_status`
---
-
-CREATE TABLE `shipment_status` (
-  `id` bigint(20) NOT NULL,
-  `receipt_code` varchar(500) NOT NULL,
-  `current_location` varchar(500) NOT NULL,
-  `shipment_id` int(11) NOT NULL,
-  `status_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -237,10 +224,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `image`, `full_name`, `phone_number`, `address`, `city`, `postal_code`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Nigga', 'nigger', 'Nigga', '41232', 'sefafasd', 'awdsdw', '1123123', 'wadaswd@gmail.com', 'Nigga1234', '2025-08-07', NULL),
-(2, 'Nigga1234', '', 'NiggaNigga', '12345', 'Nigga', 'Nigga', '1234', 'Nigga@Nigga.com', '$2y$10$GHiqM1xbEREHUYlyNXfw1OkB1S7Em7Cv41YdjTRyMacTqYpCnDF86', '0000-00-00', NULL),
-(3, 'Nigga1', '', 'MyNigga', '513123', 'Niggaa', 'wdawdasd', '4123', 'Nigga@gmail.com', 'Nigga12345', '2025-08-07', '2025-08-07'),
-(4, 'Jokowi', '', 'Mulyono Jokowi Dodo', '5132124', 'Istana Presiden', 'Jakarta', '41232', 'HidupJokowi@gmail.com', '$2y$10$L9cLhdR0btgqGz.BYIuXd.TQSJKdL2hrOoVCIYR7q0guedulR6jsu', '2025-08-07', '2025-08-07');
+(5, 'Raja', '', 'M Raja', '1234123', 'Mars', 'Jakarta', '13112', 'raja@gmail.com', '$2y$10$aFb59P4w2fyk3i4rH6RBruIlPAwEOs3btC9Bbu8NNZmCi5fZaYvRa', '2025-08-08', '2025-08-08');
 
 --
 -- Indexes for dumped tables
@@ -302,12 +286,6 @@ ALTER TABLE `shipment_service`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `shipment_status`
---
-ALTER TABLE `shipment_status`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `status`
 --
 ALTER TABLE `status`
@@ -360,12 +338,6 @@ ALTER TABLE `shipment_service`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `shipment_status`
---
-ALTER TABLE `shipment_status`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `status`
 --
 ALTER TABLE `status`
@@ -375,7 +347,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
