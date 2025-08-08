@@ -6,7 +6,7 @@
             <form action="<?php echo base_url('app/shipment/index'); ?>" method="GET">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2 class="h4 font-weight-bold d-flex align-items-center">
-                        <i class="bi bi-table mr-2"></i> User Table
+                        <i class="bi bi-table mr-2"></i> Inbound Table
                     </h2>
                     <div class="input-group" style="width: 250px;">
                         <input type="text" id="searchInput" name="search" class="form-control form-control-sm" placeholder="Search by username..." value="<?php echo html_escape($this->input->get('search')); ?>">
