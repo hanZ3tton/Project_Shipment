@@ -4,11 +4,12 @@ class Shipment extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        // Load necessary libraries, models, or helpers here
         $this->load->library('session');
-        // $this->load->model('Shipment_model'); // Assuming you have a Shipment_model for shipment operations
         $this->load->library('form_validation');
         $this->load->database();
+        $this->load->model('auth_model');
+        $this->load->library('pagination');
+        $this->load->helper('url');
         if ($this->session->userdata('username') == null) {
             redirect('auth');
         }
@@ -16,10 +17,16 @@ class Shipment extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Shipment List';
+        $page = $this->input->get('page');
+        $search = $this->input->get('search');
+        $config['base_url'] = base_url('app/shipment/index');
+        $config['total_rows'] = $this->auth_model->count_all($search);
+        $config['per_page'] = 5;
+        $this->pagination->initialize($config);
+        $data['user'] = $this->auth_model->get_pagination($config['per_page'], $page, $search);
+        $data['pagination_links'] = $this->pagination->create_links();
         $data['view'] = 'app/shipment/index';
-        $data['view_style'] = 'app/shipment/index_style';
-        $data['view_script'] = 'app/shipment/index_script';
+
         $this->load->view('app', $data);
     }
     public function create()
