@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2025 at 06:26 AM
+-- Generation Time: Aug 08, 2025 at 09:20 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -149,12 +149,12 @@ CREATE TABLE `shipment` (
   `item_name` varchar(500) NOT NULL,
   `item_description` varchar(500) NOT NULL,
   `sender_name` varchar(500) NOT NULL,
-  `email` varchar(500) NOT NULL,
-  `address` varchar(500) NOT NULL,
-  `phone_number` varchar(500) NOT NULL,
-  `country` varchar(500) NOT NULL,
-  `city` varchar(500) NOT NULL,
-  `postal_code` varchar(500) NOT NULL,
+  `sender_email` varchar(500) NOT NULL,
+  `sender_address` varchar(500) NOT NULL,
+  `sender_phone_number` varchar(500) NOT NULL,
+  `sender_country` varchar(500) NOT NULL,
+  `sender_city` varchar(500) NOT NULL,
+  `sender_postal_code` varchar(500) NOT NULL,
   `receiver_name` varchar(500) NOT NULL,
   `receiver_phone_number` varchar(128) NOT NULL,
   `receiver_email` varchar(500) NOT NULL,
@@ -174,8 +174,16 @@ CREATE TABLE `shipment` (
   `service_id` int(11) NOT NULL,
   `category_id` bigint(20) NOT NULL,
   `transaction` varchar(128) NOT NULL,
-  `shipment_status_id` bigint(20) NOT NULL
+  `shipment_status_id` bigint(20) NOT NULL,
+  `status_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `shipment`
+--
+
+INSERT INTO `shipment` (`id`, `item_name`, `item_description`, `sender_name`, `sender_email`, `sender_address`, `sender_phone_number`, `sender_country`, `sender_city`, `sender_postal_code`, `receiver_name`, `receiver_phone_number`, `receiver_email`, `receiver_address`, `receiver_country`, `receiver_city`, `receiver_postal_code`, `shipment_price`, `receipt_code`, `weight`, `length`, `width`, `height`, `created_at`, `updated_at`, `user_id`, `service_id`, `category_id`, `transaction`, `shipment_status_id`, `status_id`) VALUES
+(6, '', 'awas isinya bom', 'Raja', 'raja@gmail.com', 'cinere', '08426551', 'indo', 'depok', '5687', 'zidane', '083543535', 'zidanegro@gmail.com', 'jagakarsa', 'indo', 'jaksel', '456765', '', '', 2, 546, 10, 67, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -277,8 +285,7 @@ ALTER TABLE `outbound`
 -- Indexes for table `shipment`
 --
 ALTER TABLE `shipment`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `shipment_category_id_fk` (`service_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `shipment_service`
@@ -330,7 +337,7 @@ ALTER TABLE `outbound`
 -- AUTO_INCREMENT for table `shipment`
 --
 ALTER TABLE `shipment`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `shipment_service`
@@ -349,16 +356,6 @@ ALTER TABLE `status`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `shipment`
---
-ALTER TABLE `shipment`
-  ADD CONSTRAINT `shipment_category_id_fk` FOREIGN KEY (`service_id`) REFERENCES `shipment_service` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
