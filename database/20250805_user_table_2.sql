@@ -147,6 +147,7 @@ CREATE TABLE `outbound` (
 CREATE TABLE `shipment` (
   `id` bigint(20) NOT NULL,
   `item_name` varchar(500) NOT NULL,
+  `item_description` varchar(500) NOT NULL,
   `sender_name` varchar(500) NOT NULL,
   `email` varchar(500) NOT NULL,
   `address` varchar(500) NOT NULL,
