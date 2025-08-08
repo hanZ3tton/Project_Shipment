@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2025 at 11:11 AM
+-- Generation Time: Aug 08, 2025 at 05:23 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -161,12 +161,12 @@ CREATE TABLE `shipment` (
   `receiver_country` varchar(500) NOT NULL,
   `receiver_city` varchar(500) NOT NULL,
   `receiver_postal_code` varchar(500) NOT NULL,
-  `shipment_price` int(11) NOT NULL,
+  `shipment_price` varchar(128) NOT NULL,
   `receipt_code` varchar(500) NOT NULL,
-  `weight` int(11) NOT NULL,
-  `lenght` varchar(500) NOT NULL,
-  `widht` varchar(500) NOT NULL,
-  `height` varchar(500) NOT NULL,
+  `weight` decimal(65,0) NOT NULL,
+  `lenght` decimal(65,0) NOT NULL,
+  `widht` decimal(65,0) NOT NULL,
+  `height` decimal(65,0) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `user_id` int(11) NOT NULL,
   `service_id` int(11) NOT NULL,
@@ -220,10 +220,10 @@ CREATE TABLE `user` (
   `username` varchar(500) NOT NULL,
   `image` varchar(500) NOT NULL,
   `full_name` varchar(500) NOT NULL,
-  `phone_number` int(11) NOT NULL,
+  `phone_number` varchar(128) NOT NULL,
   `address` varchar(500) NOT NULL,
   `city` varchar(500) NOT NULL,
-  `postal_code` int(11) NOT NULL,
+  `postal_code` varchar(128) NOT NULL,
   `email` varchar(500) NOT NULL,
   `password` varchar(500) NOT NULL,
   `created_at` date NOT NULL,
@@ -235,9 +235,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `image`, `full_name`, `phone_number`, `address`, `city`, `postal_code`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Nigga', 'nigger', 'Nigga', 41232, 'sefafasd', 'awdsdw', 1123123, 'wadaswd@gmail.com', 'Nigga1234', '2025-08-07', NULL),
-(2, 'Nigga1234', '', 'NiggaNigga', 12345, 'Nigga', 'Nigga', 1234, 'Nigga@Nigga.com', '$2y$10$GHiqM1xbEREHUYlyNXfw1OkB1S7Em7Cv41YdjTRyMacTqYpCnDF86', '0000-00-00', NULL),
-(3, 'Nigga1', '', 'MyNigga', 513123, 'Niggaa', 'wdawdasd', 4123, 'Nigga@gmail.com', 'Nigga12345', '2025-08-07', '2025-08-07');
+(1, 'Nigga', 'nigger', 'Nigga', '41232', 'sefafasd', 'awdsdw', '1123123', 'wadaswd@gmail.com', 'Nigga1234', '2025-08-07', NULL),
+(2, 'Nigga1234', '', 'NiggaNigga', '12345', 'Nigga', 'Nigga', '1234', 'Nigga@Nigga.com', '$2y$10$GHiqM1xbEREHUYlyNXfw1OkB1S7Em7Cv41YdjTRyMacTqYpCnDF86', '0000-00-00', NULL),
+(3, 'Nigga1', '', 'MyNigga', '513123', 'Niggaa', 'wdawdasd', '4123', 'Nigga@gmail.com', 'Nigga12345', '2025-08-07', '2025-08-07'),
+(4, 'Jokowi', '', 'Mulyono Jokowi Dodo', '5132124', 'Istana Presiden', 'Jakarta', '41232', 'HidupJokowi@gmail.com', '$2y$10$L9cLhdR0btgqGz.BYIuXd.TQSJKdL2hrOoVCIYR7q0guedulR6jsu', '2025-08-07', '2025-08-07');
 
 --
 -- Indexes for dumped tables
@@ -372,7 +373,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
