@@ -170,7 +170,8 @@ CREATE TABLE `shipment` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `user_id` int(11) NOT NULL,
   `service_id` int(11) NOT NULL,
-  `category_id` bigint(20) NOT NULL
+  `category_id` bigint(20) NOT NULL,
+  `transaction` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
