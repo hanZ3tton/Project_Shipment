@@ -115,7 +115,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label>Item Name</label>
-                            <input type="text" class="form-control" placeholder="Laptop" name="itemName" value="<?= $shipment['item_name'] ?? '' ?>">
+                            <input type="text" class="form-control" placeholder="Laptop" name="itemName" value="<?= $shipment['item_name']  ?>">
                             <?= form_error('itemName', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-12">
@@ -125,7 +125,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Item Category</label>
-                            <select class="form-control" name="itemCategory" value="<?= $shipment['item_category'] ?? '' ?>">
+                            <select class="form-control" name="itemCategory" value="<?= $shipment['item_category'] ?>">
                                 <option value="">-- Select Category --</option>
                                 <option value="1">Electronics</option>
                                 <option value="2">Clothing</option>
@@ -136,22 +136,22 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Weight (kg)</label>
-                            <input type="number" step="0.01" class="form-control" placeholder="1.5" name="itemWeight" value="<?= $shipment['item_weight'] ?? '' ?>">
+                            <input type="number" step="0.01" class="form-control" placeholder="1.5" name="itemWeight" value="<?= $shipment['weight'] ?>">
                             <?= form_error('itemWeight', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Length (cm)</label>
-                            <input type="number" class="form-control" placeholder="50" name="itemLength" value="<?= $shipment['item_length'] ?? '' ?>">
+                            <input type="number" class="form-control" placeholder="50" name="itemLength" value="<?= $shipment['length'] ?>">
                             <?= form_error('itemLength', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Width (cm)</label>
-                            <input type="number" class="form-control" placeholder="30" name="itemWidth" value="<?= $shipment['item_width'] ?? '' ?>">
+                            <input type="number" class="form-control" placeholder="30" name="itemWidth" value="<?= $shipment['width'] ?>">
                             <?= form_error('itemWidth', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Height (cm)</label>
-                            <input type="number" class="form-control" placeholder="10" name="itemHeight" value="<?= $shipment['item_height'] ?? '' ?>">
+                            <input type="number" class="form-control" placeholder="10" name="itemHeight" value="<?= $shipment['height'] ?>">
                             <?= form_error('itemHeight', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                     </div>

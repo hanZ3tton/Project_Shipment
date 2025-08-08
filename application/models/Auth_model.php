@@ -80,6 +80,14 @@ class Auth_model extends CI_Model
     {
         if ($searchQuery) {
             $this->db->like('username', $searchQuery);
+            $this->db->or_like('full_name', $searchQuery);
+            $this->db->or_like('email', $searchQuery);
+            $this->db->or_like('phone_number', $searchQuery);
+            $this->db->or_like('address', $searchQuery);
+            $this->db->or_like('city', $searchQuery);
+            $this->db->or_like('postal_code', $searchQuery);
+            $this->db->or_like('created_at', $searchQuery);
+            $this->db->or_like('updated_at', $searchQuery);
         }
     }
 

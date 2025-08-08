@@ -61,7 +61,7 @@
                         <?php endforeach ?>
                         <?php if (empty($user)): ?>
                             <tr>
-                                <td colspan="3">No data available</td>
+                                <td colspan="10">No data available</td>
                             </tr>
                         <?php endif ?>
                     </tbody>

@@ -103,6 +103,9 @@ class Shipment_model extends CI_Model
     {
         if ($searchQuery) {
             $this->db->like('sender_name', $searchQuery);
+            $this->db->or_like('item_name', $searchQuery);
+            $this->db->or_like('sender_phone_number', $searchQuery);
+            $this->db->or_like('sender_address', $searchQuery);
         }
     }
 
